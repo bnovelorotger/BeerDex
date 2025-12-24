@@ -822,16 +822,6 @@
       "emoji": "🍺"
     },
     {
-      "id": "estrella_damm_bock",
-      "name": "Estrella Damm Bock",
-      "brand": "Damm",
-      "style": "Bock",
-      "country": "ES",
-      "abv": 6.5,
-      "rarity": "rare",
-      "emoji": "🍺"
-    },
-    {
       "id": "estrella_damm_malquerida",
       "name": "Malquerida",
       "brand": "Damm",
