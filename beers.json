@@ -492,6 +492,16 @@
       "emoji": "🍺"
     },
     {
+      "id": "cruzcampo_shandy",
+      "name": "Cruzcampo Shandy",
+      "brand": "Cruzcampo",
+      "style": "Shandy",
+      "country": "ES",
+      "abv": 0.9,
+      "rarity": "common",
+      "emoji": "🍺"
+    },
+    {
       "id": "cruzcampo_radler",
       "name": "Cruzcampo Radler",
       "brand": "Cruzcampo",
