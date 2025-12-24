@@ -1372,6 +1372,26 @@
       "emoji": "🍺"
     },
     {
+      "id": "stella_artois",
+      "name": "Stella Artois",
+      "brand": "Stella Artois",
+      "style": "Lager",
+      "country": "BE",
+      "abv": 5.0,
+      "rarity": "rare",
+      "emoji": "🍺"
+    },
+    {
+      "id": "leffe_blonde",
+      "name": "Leffe Blonde",
+      "brand": "Leffe",
+      "style": "Pale Ale",
+      "country": "BE",
+      "abv": 6.6,
+      "rarity": "mythic",
+      "emoji": "🍺"
+    },
+    {
       "id": "budvar",
       "name": "Budweiser Budvar",
       "brand": "Budweiser Budvar",

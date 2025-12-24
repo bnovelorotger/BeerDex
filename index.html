@@ -591,6 +591,169 @@
             background: rgba(255, 122, 24, .10);
         }
 
+        /* Welcome screen */
+        .welcomeCard {
+            max-width: 760px;
+        }
+
+        .welcomeBody {
+            padding: 14px 16px 16px;
+        }
+
+        .welcomeHero {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            padding: 12px;
+            border-radius: 16px;
+            background: rgba(255, 255, 255, .04);
+            border: 1px solid rgba(255, 255, 255, .08);
+        }
+
+        .welcomeLogo {
+            width: 54px;
+            height: 54px;
+            border-radius: 16px;
+            display: grid;
+            place-items: center;
+            background: rgba(255, 255, 255, .06);
+            border: 1px solid rgba(255, 255, 255, .10);
+            font-size: 26px;
+        }
+
+        .welcomeHeadline {
+            font-size: 18px;
+            font-weight: 900;
+        }
+
+        .welcomeSub {
+            color: var(--muted);
+            font-size: 13px;
+            margin-top: 2px;
+        }
+
+        .welcomeSteps {
+            margin-top: 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .welcomeStep {
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+            padding: 12px;
+            border-radius: 16px;
+            background: rgba(0, 0, 0, .18);
+            border: 1px solid rgba(255, 255, 255, .08);
+        }
+
+        .welcomeStepIcon {
+            width: 36px;
+            height: 36px;
+            border-radius: 12px;
+            display: grid;
+            place-items: center;
+            background: rgba(255, 255, 255, .06);
+            border: 1px solid rgba(255, 255, 255, .10);
+            flex: 0 0 auto;
+        }
+
+        .welcomeStepTitle {
+            font-weight: 900;
+        }
+
+        .welcomeStepDesc {
+            color: var(--muted);
+            font-size: 12.5px;
+            margin-top: 2px;
+        }
+
+        .welcomeCTA {
+            margin-top: 14px;
+        }
+
+        /* Badge pop notification */
+        .badgePop {
+            position: fixed;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: calc(94px + env(safe-area-inset-bottom));
+            z-index: 120;
+            width: min(520px, calc(100% - 24px));
+            padding: 12px 14px;
+            border-radius: 18px;
+            background: rgba(20, 14, 10, .92);
+            border: 1px solid rgba(255, 255, 255, .12);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, .45);
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            opacity: 0;
+            animation: badgePopIn .25s ease forwards, badgePopOut .35s ease forwards;
+            animation-delay: 0s, 3.65s;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .badgePopIcon {
+            width: 44px;
+            height: 44px;
+            border-radius: 16px;
+            display: grid;
+            place-items: center;
+            background: rgba(255, 255, 255, .06);
+            border: 1px solid rgba(255, 255, 255, .10);
+            font-size: 20px;
+            flex: 0 0 auto;
+        }
+
+        .badgePopTitle {
+            font-weight: 950;
+        }
+
+        .badgePopDesc {
+            color: var(--muted);
+            font-size: 12.5px;
+            margin-top: 2px;
+        }
+
+        @keyframes badgePopIn {
+            from {
+                opacity: 0;
+                transform: translateX(-50%) translateY(10px) scale(.98);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(-50%) translateY(0) scale(1);
+            }
+        }
+
+        @keyframes badgePopOut {
+            from {
+                opacity: 1;
+                transform: translateX(-50%) translateY(0) scale(1);
+            }
+
+            to {
+                opacity: 0;
+                transform: translateX(-50%) translateY(10px) scale(.98);
+            }
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 720px) {
+            .welcomeCard {
+                width: 100%;
+                height: 100dvh;
+                max-height: 100dvh;
+                margin: 0;
+                border-radius: 0;
+            }
+        }
+
         .fab {
             width: 58px;
             height: 58px;
@@ -1525,6 +1688,57 @@
         <img id="zoomImg" class="zoomImg" src="" alt="Vista ampliada">
     </div>
 
+    <div id="welcomeOverlay" class="modal">
+        <div class="sheet welcomeCard">
+            <div class="sheethead">
+                <div class="modalTitle">🍻 Bienvenido a BeerDex</div>
+                <button class="xbtn" id="welcomeClose">✕</button>
+            </div>
+
+            <div class="welcomeBody">
+                <div class="welcomeHero">
+                    <div class="welcomeLogo">🍺</div>
+                    <div>
+                        <div class="welcomeHeadline">Tu taberna de bolsillo</div>
+                        <div class="welcomeSub">Captura cervezas, súbelas de nivel y completa tu colección.</div>
+                    </div>
+                </div>
+
+                <div class="welcomeSteps">
+                    <div class="welcomeStep">
+                        <div class="welcomeStepIcon">➕</div>
+                        <div>
+                            <div class="welcomeStepTitle">1. Registra en 2 toques</div>
+                            <div class="welcomeStepDesc">Pulsa “+”, elige la cerveza y guarda. Lo demás es opcional.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="welcomeStep">
+                        <div class="welcomeStepIcon">📸</div>
+                        <div>
+                            <div class="welcomeStepTitle">2. Foto y mini nota (si quieres)</div>
+                            <div class="welcomeStepDesc">Deja evidencia y una nota corta para acordarte.</div>
+                        </div>
+                    </div>
+                    <div class="welcomeStep">
+                        <div class="welcomeStepIcon">🏅</div>
+                        <div>
+                            <div class="welcomeStepTitle">3. Sube de nivel y desbloquea logros</div>
+                            <div class="welcomeStepDesc">Cada nueva cerveza te da XP. Completa la BeerDex.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="welcomeCTA">
+                    <button id="welcomeStart" class="btn primary" style="width:100%">Entrar a la taberna 🍻</button>
+                    <div class="mini" style="margin-top:10px; text-align:center;">
+                        Tip: úsala con amigos para ver quién completa más cervezas este año.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script>
         /***********************
          * BeerDex MVP v2
@@ -1614,6 +1828,57 @@
         let selectedRating = 0;
         let selectedPhotoData = null;
 
+        // Welcome screen logic
+        function openWelcome() {
+            const w = el("welcomeOverlay");
+            if (w) w.classList.add("on");
+        }
+        function closeWelcome() {
+            const w = el("welcomeOverlay");
+            if (w) w.classList.remove("on");
+        }
+        function initWelcome() {
+            const seen = localStorage.getItem("beerdex_welcome_seen") === "1";
+            if (!seen) openWelcome();
+
+            const start = el("welcomeStart");
+            const close = el("welcomeClose");
+            if (start) start.onclick = () => {
+                localStorage.setItem("beerdex_welcome_seen", "1");
+                closeWelcome();
+                if (!user.name || user.name === "Invitado") openProfileModal(true);
+            };
+            if (close) close.onclick = () => {
+                localStorage.setItem("beerdex_welcome_seen", "1");
+                closeWelcome();
+            };
+        }
+
+        // Badge pop notification
+        function showBadgePop(badge) {
+            const old = document.querySelector(".badgePop");
+            if (old) old.remove();
+
+            const d = document.createElement("div");
+            d.className = "badgePop";
+            d.innerHTML = `
+                <div class="badgePopIcon">${escapeHTML(badge.icon || "🏅")}</div>
+                <div style="min-width:0">
+                    <div class="badgePopTitle">¡Logro desbloqueado! ${escapeHTML(badge.name)}</div>
+                    <div class="badgePopDesc">${escapeHTML(badge.desc || "")}</div>
+                </div>
+            `;
+            document.body.appendChild(d);
+            setTimeout(() => { if (d && d.parentNode) d.remove(); }, 4200);
+        }
+
+        function awardBadge(id) {
+            if (user.badges.includes(id)) return;
+            user.badges.push(id);
+            const b = BADGES.find(x => x.id === id);
+            if (b) showBadgePop(b);
+        }
+
         init();
 
         async function init() {
@@ -1627,6 +1892,7 @@
             await loadDataFiles(); // beers.json & badges.json
             buildStyleChips();     // needs catalog
             renderAll();
+            initWelcome();
 
             // onboarding si no hay nombre
             if (!user.name) {
@@ -2358,7 +2624,7 @@
             for (const b of BADGES) {
                 if (user.badges.includes(b.id)) continue;
                 if (rulePasses(b.rule, stats)) {
-                    user.badges.push(b.id);
+                    awardBadge(b.id);
                     newly.push(b);
                 }
             }
