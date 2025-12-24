@@ -1,0 +1,2375 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>BeerDex — Taberna Interactiva</title>
+    <style>
+        :root {
+            --bg: #0f0f0e;
+            --wood1: #14110f;
+            --wood2: #1b1512;
+            --panel: rgba(20, 17, 15, 0.82);
+            --card: rgba(26, 21, 18, 0.9);
+            --border: rgba(255, 255, 255, 0.08);
+            --text: rgba(255, 245, 235, 0.92);
+            --muted: rgba(255, 245, 235, 0.68);
+            --accent: #ff7a18;
+            --accent2: #f3c969;
+            --shadow: 0 14px 40px rgba(0, 0, 0, .45);
+            --radius: 18px;
+            --radius2: 24px;
+            --max: 980px;
+            --tap: 52px;
+        }
+
+        body {
+            margin: 0;
+            font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+            color: var(--text);
+            background:
+                radial-gradient(1200px 800px at 30% -10%, rgba(255, 122, 24, .18), transparent 60%),
+                radial-gradient(900px 700px at 90% 0%, rgba(243, 201, 105, .12), transparent 55%),
+                linear-gradient(180deg, rgba(0, 0, 0, .65), rgba(0, 0, 0, .85)),
+                repeating-linear-gradient(90deg,
+                    var(--wood1) 0px,
+                    var(--wood1) 22px,
+                    var(--wood2) 38px,
+                    var(--wood1) 52px);
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        .wrap {
+            max-width: var(--max);
+            margin: 0 auto;
+            padding: 12px 12px 96px;
+        }
+
+        .topbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            padding: 10px 0 14px;
+            position: sticky;
+            top: 0;
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            background: linear-gradient(180deg, rgba(15, 15, 14, .95), rgba(15, 15, 14, .75), transparent);
+            z-index: 20;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .crest {
+            width: 40px;
+            height: 40px;
+            border-radius: 14px;
+            background:
+                radial-gradient(circle at 30% 30%, rgba(255, 122, 24, .35), transparent 55%),
+                linear-gradient(180deg, rgba(255, 255, 255, .10), rgba(255, 255, 255, .02));
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow);
+            display: grid;
+            place-items: center;
+        }
+
+        .crest span {
+            font-size: 18px;
+        }
+
+        .titleblock {
+            line-height: 1.05;
+        }
+
+        .titleblock .t {
+            font-weight: 780;
+            letter-spacing: .3px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .titleblock .s {
+            font-size: 12px;
+            color: var(--muted);
+            margin-top: 4px;
+        }
+
+        .userchip {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 12px;
+            border-radius: 999px;
+            background: rgba(20, 17, 15, .65);
+            border: 1px solid var(--border);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, .25);
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .avatar {
+            width: 34px;
+            height: 34px;
+            border-radius: 14px;
+            display: grid;
+            place-items: center;
+            background: rgba(0, 0, 0, .25);
+            border: 1px solid rgba(255, 255, 255, .10);
+            font-size: 16px;
+        }
+
+        .pill {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 10px;
+            border-radius: 999px;
+            background: rgba(20, 17, 15, .65);
+            border: 1px solid var(--border);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, .25);
+        }
+
+        .pill b {
+            font-weight: 800;
+        }
+
+        .bar {
+            height: 6px;
+            width: 70px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, .08);
+            overflow: hidden;
+        }
+
+        @media(min-width: 400px) {
+            .bar {
+                width: 100px;
+            }
+
+            .pill {
+                gap: 10px;
+                padding: 10px 12px;
+            }
+        }
+
+        .bar>i {
+            display: block;
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent), var(--accent2));
+            width: 40%;
+            border-radius: 999px;
+        }
+
+        .panel {
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: var(--radius2);
+            box-shadow: var(--shadow);
+            padding: 16px 12px;
+        }
+
+        @media(min-width: 600px) {
+            .panel {
+                padding: 18px;
+            }
+        }
+
+        .row {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .row>* {
+            flex: 1;
+            min-width: 240px;
+        }
+
+        .h1 {
+            font-size: clamp(15px, 4vw, 17px);
+            font-weight: 820;
+            letter-spacing: .2px;
+            margin: 0 0 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        .sub {
+            color: var(--muted);
+            font-size: 13px;
+            margin-top: 6px;
+        }
+
+        .controls {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            flex-wrap: wrap;
+            margin: 10px 0 12px;
+        }
+
+        .controls>div {
+            flex: 1;
+            min-width: 100%;
+        }
+
+        @media(min-width: 480px) {
+            .controls>div {
+                min-width: 170px;
+            }
+
+            .controls>div:first-child {
+                flex: 2;
+            }
+        }
+
+        input[type="search"],
+        select,
+        textarea,
+        input[type="text"] {
+            width: 100%;
+            padding: 12px 12px;
+            border-radius: 14px;
+            border: 1px solid var(--border);
+            background: rgba(12, 10, 9, 0.7);
+            color: var(--text);
+            outline: none;
+        }
+
+        input::placeholder,
+        textarea::placeholder {
+            color: rgba(255, 245, 235, .45);
+        }
+
+        .chiprow {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .chip {
+            padding: 10px 12px;
+            border-radius: 999px;
+            background: rgba(12, 10, 9, .55);
+            border: 1px solid var(--border);
+            color: var(--text);
+            font-size: 13px;
+            cursor: pointer;
+            user-select: none;
+            transition: transform .08s ease;
+        }
+
+        .chip:active {
+            transform: scale(.98);
+        }
+
+        .chip.on {
+            border-color: rgba(255, 122, 24, .55);
+            background: rgba(255, 122, 24, .14);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 10px;
+        }
+
+        @media(min-width: 360px) {
+            .grid {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
+        }
+
+        @media(min-width: 620px) {
+            .grid {
+                grid-template-columns: repeat(5, minmax(0, 1fr));
+            }
+        }
+
+        .card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 10px;
+            box-shadow: 0 10px 26px rgba(0, 0, 0, .35);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            user-select: none;
+            transition: transform .08s ease, border-color .2s ease;
+        }
+
+        .card:active {
+            transform: scale(.985);
+        }
+
+        .thumb {
+            height: 72px;
+            border-radius: 14px;
+            background:
+                radial-gradient(circle at 30% 30%, rgba(255, 122, 24, .18), transparent 60%),
+                linear-gradient(180deg, rgba(255, 255, 255, .08), rgba(255, 255, 255, .02));
+            border: 1px solid rgba(255, 255, 255, .08);
+            display: grid;
+            place-items: center;
+            margin-bottom: 8px;
+            position: relative;
+        }
+
+        .thumb .emoji {
+            font-size: 22px;
+            opacity: .9;
+        }
+
+        .name {
+            font-weight: 820;
+            font-size: 12px;
+            letter-spacing: .2px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .meta {
+            margin-top: 4px;
+            font-size: 11px;
+            color: var(--muted);
+            display: flex;
+            justify-content: space-between;
+            gap: 8px;
+        }
+
+        .rarity {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 10px;
+            padding: 6px 8px;
+            border-radius: 999px;
+            border: 1px solid rgba(255, 255, 255, .10);
+            background: rgba(0, 0, 0, .25);
+            color: rgba(255, 245, 235, .85);
+        }
+
+        .rarity.common {
+            border-color: rgba(255, 255, 255, .10);
+        }
+
+        .rarity.rare {
+            border-color: rgba(243, 201, 105, .35);
+            background: rgba(243, 201, 105, .10);
+        }
+
+        .rarity.mythic {
+            border-color: rgba(255, 122, 24, .45);
+            background: rgba(255, 122, 24, .12);
+        }
+
+        .locked .thumb,
+        .locked .name,
+        .locked .meta {
+            filter: blur(1.4px);
+            opacity: .35;
+        }
+
+        .locked::after {
+            content: "???";
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            font-size: 18px;
+            letter-spacing: 2px;
+            color: rgba(255, 245, 235, .72);
+            text-shadow: 0 8px 24px rgba(0, 0, 0, .65);
+            pointer-events: none;
+        }
+
+        .nav {
+            position: fixed;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            padding: 10px 14px 14px;
+            z-index: 30;
+            background: linear-gradient(180deg, transparent, rgba(0, 0, 0, .72), rgba(0, 0, 0, .88));
+            backdrop-filter: blur(10px);
+        }
+
+        .navbar {
+            max-width: var(--max);
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            background: rgba(20, 17, 15, .72);
+            border: 1px solid var(--border);
+            border-radius: 999px;
+            padding: 10px 12px;
+            box-shadow: var(--shadow);
+            position: relative;
+        }
+
+        .navbtn {
+            width: 78px;
+            height: 44px;
+            border-radius: 999px;
+            border: 1px solid transparent;
+            background: transparent;
+            color: var(--muted);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 3px;
+            cursor: pointer;
+            user-select: none;
+            font-size: 11px;
+        }
+
+        .navbtn .ico {
+            font-size: 18px;
+            line-height: 1;
+        }
+
+        .navbtn.on {
+            color: var(--text);
+            border-color: rgba(255, 122, 24, .35);
+            background: rgba(255, 122, 24, .10);
+        }
+
+        .fab {
+            width: 58px;
+            height: 58px;
+            border-radius: 18px;
+            border: 1px solid rgba(255, 122, 24, .45);
+            background:
+                radial-gradient(circle at 30% 20%, rgba(255, 255, 255, .18), transparent 45%),
+                linear-gradient(180deg, rgba(255, 122, 24, .95), rgba(255, 122, 24, .55));
+            color: #1a0e06;
+            box-shadow: 0 18px 42px rgba(0, 0, 0, .50);
+            display: grid;
+            place-items: center;
+            transform: translateY(-18px);
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .fab span {
+            font-size: 24px;
+            font-weight: 900;
+        }
+
+        .modal {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, .62);
+            display: none;
+            z-index: 50;
+            padding: 18px 14px;
+            overflow: auto;
+        }
+
+        .modal.on {
+            display: block;
+        }
+
+        .sheet {
+            max-width: 760px;
+            margin: 0 auto;
+            background: rgba(18, 14, 12, .96);
+            border: 1px solid rgba(255, 255, 255, .12);
+            border-radius: 28px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            animation: sheetUp .3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        @keyframes sheetUp {
+            from {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .sheethead {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 14px 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, .08);
+            background:
+                radial-gradient(circle at 20% 0%, rgba(255, 122, 24, .22), transparent 55%),
+                linear-gradient(180deg, rgba(255, 255, 255, .04), transparent);
+        }
+
+        .sheethead h2 {
+            margin: 0;
+            font-size: 15px;
+            font-weight: 860;
+        }
+
+        .xbtn {
+            width: 42px;
+            height: 42px;
+            border-radius: 14px;
+            background: rgba(0, 0, 0, .25);
+            border: 1px solid rgba(255, 255, 255, .10);
+            color: var(--text);
+            cursor: pointer;
+        }
+
+        .sheetbody {
+            padding: 14px;
+        }
+
+        .twocol {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+        }
+
+        @media(min-width:720px) {
+            .twocol {
+                grid-template-columns: 1.1fr .9fr;
+            }
+        }
+
+        .list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            max-height: 52vh;
+            overflow: auto;
+            padding-right: 6px;
+        }
+
+        .item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            padding: 12px;
+            border-radius: 18px;
+            background: rgba(12, 10, 9, .55);
+            border: 1px solid rgba(255, 255, 255, .08);
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .item b {
+            font-weight: 850;
+        }
+
+        .item small {
+            color: var(--muted);
+            display: block;
+            margin-top: 3px;
+        }
+
+        .tag {
+            padding: 6px 9px;
+            border-radius: 999px;
+            border: 1px solid rgba(255, 255, 255, .10);
+            background: rgba(0, 0, 0, .22);
+            font-size: 11px;
+            color: rgba(255, 245, 235, .85);
+            white-space: nowrap;
+        }
+
+        .stars {
+            display: flex;
+            gap: 6px;
+            align-items: center;
+        }
+
+        .star {
+            width: 42px;
+            height: 42px;
+            border-radius: 14px;
+            border: 1px solid rgba(255, 255, 255, .10);
+            background: rgba(0, 0, 0, .25);
+            color: rgba(255, 245, 235, .55);
+            display: grid;
+            place-items: center;
+            cursor: pointer;
+            user-select: none;
+            font-size: 18px;
+        }
+
+        .star.on {
+            background: rgba(255, 122, 24, .18);
+            border-color: rgba(255, 122, 24, .55);
+            color: rgba(255, 245, 235, .92);
+        }
+
+        .btn {
+            height: var(--tap);
+            border-radius: 18px;
+            border: 1px solid rgba(255, 255, 255, .10);
+            background: rgba(0, 0, 0, .25);
+            color: var(--text);
+            padding: 0 16px;
+            cursor: pointer;
+            user-select: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            font-weight: 820;
+            transition: transform .1s ease, background .2s ease;
+        }
+
+        .btn:active {
+            transform: scale(0.96);
+        }
+
+        .btn.primary {
+            background: linear-gradient(180deg, rgba(255, 122, 24, .92), rgba(255, 122, 24, .55));
+            border-color: rgba(255, 122, 24, .50);
+            color: #1a0e06;
+        }
+
+        .mini {
+            font-size: 12px;
+            color: var(--muted);
+            margin-top: 8px;
+            line-height: 1.35;
+        }
+
+        .toast {
+            position: fixed;
+            left: 50%;
+            bottom: 92px;
+            transform: translateX(-50%);
+            z-index: 80;
+            background: rgba(18, 14, 12, .92);
+            border: 1px solid rgba(255, 255, 255, .10);
+            border-radius: 18px;
+            box-shadow: var(--shadow);
+            padding: 12px 14px;
+            min-width: min(92vw, 520px);
+            display: none;
+        }
+
+        .toast.on {
+            display: block;
+            animation: pop .24s ease;
+        }
+
+        @keyframes pop {
+            from {
+                transform: translateX(-50%) translateY(10px);
+                opacity: .0
+            }
+
+            to {
+                transform: translateX(-50%) translateY(0);
+                opacity: 1
+            }
+        }
+
+        .toast b {
+            font-weight: 900;
+        }
+
+        .toast .line {
+            color: var(--muted);
+            font-size: 13px;
+            margin-top: 4px;
+        }
+
+        .kpi {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 10px;
+            background: rgba(12, 10, 9, .50);
+            border: 1px solid rgba(255, 255, 255, .08);
+            border-radius: 18px;
+            padding: 12px;
+        }
+
+        .kpi .n {
+            font-size: 20px;
+            font-weight: 900;
+        }
+
+        .kpi .l {
+            color: var(--muted);
+            font-size: 12px;
+            margin-top: 4px;
+        }
+
+        .bars {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .barrow {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .barrow label {
+            width: 140px;
+            color: var(--muted);
+            font-size: 12px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .barrow .track {
+            flex: 1;
+            height: 10px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, .08);
+            overflow: hidden;
+        }
+
+        .barrow .fill {
+            height: 100%;
+            width: 30%;
+            background: linear-gradient(90deg, var(--accent), var(--accent2));
+            border-radius: 999px;
+        }
+
+        .barrow .val {
+            width: 48px;
+            text-align: right;
+            color: var(--muted);
+            font-size: 12px;
+        }
+
+        .badgegrid {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            padding: 10px 12px;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, .10);
+            background: rgba(12, 10, 9, .55);
+            color: var(--muted);
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .badge.on {
+            color: var(--text);
+            border-color: rgba(255, 122, 24, .35);
+            background: rgba(255, 122, 24, .10);
+        }
+
+        .diary {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            max-height: 42vh;
+            overflow: auto;
+            padding-right: 6px;
+        }
+
+        .entry {
+            padding: 12px;
+            border-radius: 18px;
+            background: rgba(12, 10, 9, .55);
+            border: 1px solid rgba(255, 255, 255, .08);
+        }
+
+        .entry b {
+            font-weight: 860;
+        }
+
+        .entry .m {
+            color: var(--muted);
+            font-size: 12px;
+            margin-top: 4px;
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        .entry .note {
+            color: rgba(255, 245, 235, .78);
+            font-size: 13px;
+            margin-top: 8px;
+        }
+
+        .entry img {
+            width: 100%;
+            border-radius: 16px;
+            margin-top: 10px;
+            border: 1px solid rgba(255, 255, 255, .10);
+        }
+
+        .danger {
+            border-color: rgba(251, 113, 133, .35) !important;
+            background: rgba(251, 113, 133, .10) !important;
+        }
+
+        .avatars {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 10px;
+        }
+
+        .ava {
+            width: 46px;
+            height: 46px;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, .10);
+            background: rgba(0, 0, 0, .25);
+            display: grid;
+            place-items: center;
+            cursor: pointer;
+            user-select: none;
+            font-size: 18px;
+        }
+
+        .ava.on {
+            border-color: rgba(255, 122, 24, .55);
+            background: rgba(255, 122, 24, .12);
+        }
+
+        .avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 14px;
+            display: block;
+        }
+
+        /* File picker "taberna" */
+        .fileRow {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .fileInput {
+            position: absolute;
+            left: -9999px;
+            width: 1px;
+            height: 1px;
+            opacity: 0;
+        }
+
+        .fileBtn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 12px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, .10);
+            background: rgba(255, 255, 255, .06);
+            color: var(--text);
+            font-weight: 850;
+            cursor: pointer;
+            user-select: none;
+            transition: transform .08s ease, background .15s ease, border-color .15s ease;
+        }
+
+        .fileBtn:hover {
+            background: rgba(255, 255, 255, .09);
+            border-color: rgba(255, 255, 255, .18);
+        }
+
+        .fileBtn:active {
+            transform: translateY(1px);
+        }
+
+        .fileMeta {
+            flex: 1;
+            min-width: 0;
+            color: var(--muted);
+            font-size: 12px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .fileBtn.small {
+            padding: 8px 10px;
+            border-radius: 10px;
+            font-weight: 800;
+            font-size: 12px;
+        }
+
+        /* Beer icon with image fallback */
+        .beerIcon {
+            width: 38px;
+            height: 38px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, .10);
+            background: rgba(255, 255, 255, .06);
+            display: grid;
+            place-items: center;
+            overflow: hidden;
+            flex: 0 0 auto;
+        }
+
+        .beerIcon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .beerIcon .fallback {
+            font-size: 18px;
+            opacity: .95;
+        }
+
+        /* Updated thumb to hold the beerIcon */
+        .thumb .beerIcon {
+            width: 48px;
+            height: 48px;
+            border-radius: 14px;
+        }
+
+        .thumb .beerIcon img {
+            border-radius: 12px;
+        }
+
+        .thumb .beerIcon .fallback {
+            font-size: 22px;
+        }
+
+        /* Icono grande en el header del modal de cerveza */
+        .beerBigIcon {
+            width: 56px;
+            height: 56px;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, .10);
+            background: rgba(255, 255, 255, .06);
+            display: grid;
+            place-items: center;
+            overflow: hidden;
+            flex: 0 0 auto;
+        }
+
+        .beerBigIcon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* image-rendering: pixelated; // Desactivado si prefieres suavizado, activado para pixelart */
+            display: block;
+        }
+
+        .beerBigIcon .fallback {
+            font-size: 22px;
+            opacity: .95;
+        }
+
+        .modalTitleRow {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .modalTitle {
+            font-size: 16px;
+            font-weight: 860;
+        }
+
+        .modalSub {
+            font-size: 12px;
+            color: var(--muted);
+            margin-top: 2px;
+        }
+
+        /* Zoom / Lightbox */
+        #zoomModal {
+            background: rgba(0, 0, 0, .85);
+            display: none;
+            cursor: zoom-out;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            z-index: 100;
+        }
+
+        #zoomModal.on {
+            display: flex;
+        }
+
+        .zoomImg {
+            max-width: 95vw;
+            max-height: 85vh;
+            border-radius: 12px;
+            box-shadow: 0 0 50px rgba(0, 0, 0, .8);
+            border: 2px solid rgba(255, 255, 255, .1);
+            object-fit: contain;
+            animation: zoomPop .2s ease-out;
+        }
+
+        @keyframes zoomPop {
+            from {
+                transform: scale(0.9);
+                opacity: 0;
+            }
+
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="topbar">
+            <div class="brand">
+                <div class="crest"><span>🍺</span></div>
+                <div class="titleblock">
+                    <div class="t">
+                        BeerDex
+                    </div>
+                    <div class="s">Tu taberna de bolsillo — captura cervezas, sube de nivel.</div>
+                </div>
+            </div>
+
+            <div style="display:flex; gap:10px; align-items:center;">
+                <div class="userchip" id="userChip" title="Editar perfil">
+                    <div class="avatar" id="topAvatar">🙂</div>
+                    <div style="line-height:1.1">
+                        <div style="font-weight:860; font-size:12px" id="topName">Invitado</div>
+                        <div style="color:var(--muted); font-size:11px">Perfil</div>
+                    </div>
+                </div>
+
+                <div class="pill" id="xpPill" title="Tu progreso">
+                    <div>
+                        <div style="font-size:12px;color:var(--muted)">Nivel</div>
+                        <div><b id="lvlName">Novato</b> <span style="color:var(--muted);font-size:12px" id="xpText">0
+                                XP</span></div>
+                    </div>
+                    <div class="bar" aria-hidden="true"><i id="xpBar"></i></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="viewDex" class="panel">
+            <div class="h1">
+                <span>📚 BeerDex</span>
+                <span style="color:var(--muted);font-size:12px" id="dexProgress">0/0</span>
+            </div>
+            <div class="sub">Madera, barrica y colecciones. Busca y completa la dex.</div>
+
+            <div class="controls">
+                <div id="dexSearchContainer">
+                    <input id="dexSearch" type="search" placeholder="Buscar cerveza (nombre, estilo, país)..." />
+                </div>
+                <div id="dexFilterContainer">
+                    <select id="dexFilter">
+                        <option value="all">Todas</option>
+                        <option value="owned">Conseguidas</option>
+                        <option value="missing">No conseguidas</option>
+                        <option value="top">Top (por tu rating)</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="chiprow" id="styleChips" style="margin-bottom:12px;"></div>
+
+            <div class="grid" id="dexGrid"></div>
+            <div class="mini">Tip taberna: pulsa una cerveza para ver detalles. El botón <b>+</b> es tu captura rápida.
+            </div>
+        </div>
+
+        <div id="viewStats" class="panel" style="display:none;">
+            <div class="h1"><span>📊 Stats</span><span style="color:var(--muted);font-size:12px" id="yearLabel"></span>
+            </div>
+            <div class="sub">Lo esencial: total, únicas, progreso y tus tendencias del año.</div>
+
+            <div class="row" style="margin-top:12px;">
+                <div class="kpi">
+                    <div>
+                        <div class="n" id="kTotal">0</div>
+                        <div class="l">Registros del año</div>
+                    </div>
+                    <div class="tag">🍻</div>
+                </div>
+                <div class="kpi">
+                    <div>
+                        <div class="n" id="kUnique">0</div>
+                        <div class="l">Únicas del año</div>
+                    </div>
+                    <div class="tag">📚</div>
+                </div>
+                <div class="kpi">
+                    <div>
+                        <div class="n" id="kAvg">—</div>
+                        <div class="l">Media rating (solo valoradas)</div>
+                    </div>
+                    <div class="tag">⭐</div>
+                </div>
+            </div>
+
+            <div class="row" style="margin-top:12px;">
+                <div>
+                    <div class="h1"><span>Progreso dex</span><span style="color:var(--muted);font-size:12px"
+                            id="dexPct">0%</span></div>
+                    <div class="bar" style="width:100%;height:12px;"><i id="dexBar" style="width:0%"></i></div>
+                    <div class="mini" id="dexMini">0 de 0 capturadas.</div>
+                </div>
+                <div>
+                    <div class="h1"><span>Top estilos</span><span style="color:var(--muted);font-size:12px">por
+                            frecuencia</span></div>
+                    <div class="bars" id="topStyles"></div>
+                </div>
+            </div>
+
+            <div style="margin-top:12px;">
+                <div class="h1"><span>Top cervezas</span><span style="color:var(--muted);font-size:12px">por tu rating
+                        (y repeticiones)</span></div>
+                <div class="bars" id="topBeers"></div>
+            </div>
+        </div>
+
+        <div id="viewProfile" class="panel" style="display:none;">
+            <div class="h1"><span>🧑‍🍻 Perfil</span><span class="tag" id="profileLevel">Novato</span></div>
+            <div class="sub">Tu personaje en la taberna: nombre, avatar, nivel, insignias y diario.</div>
+
+            <div class="row" style="margin-top:12px;">
+                <div>
+                    <div class="kpi">
+                        <div>
+                            <div class="n" id="pNameLine">Invitado 🙂</div>
+                            <div class="l">Nombre y avatar</div>
+                        </div>
+                        <div><button class="btn" id="editProfileBtn">✏️ Editar</button></div>
+                    </div>
+
+                    <div class="kpi" style="margin-top:12px;">
+                        <div>
+                            <div class="n" id="pXP">0</div>
+                            <div class="l">XP total</div>
+                        </div>
+                        <div class="tag">✨</div>
+                    </div>
+                    <div class="mini" id="pNext">Siguiente nivel: —</div>
+
+                    <div class="controls" style="margin-top:10px;">
+                        <button class="btn danger" id="resetBtn">🧯 Reset (local)</button>
+                        <button class="btn" id="exportBtn">📦 Exportar</button>
+                        <label class="btn" style="cursor:pointer;">
+                            📥 Importar<input id="importInput" type="file" accept="application/json"
+                                style="display:none;">
+                        </label>
+                    </div>
+                    <div class="mini">Export/Import te permite pasar tu BeerDex a otro móvil sin backend.</div>
+                </div>
+
+                <div>
+                    <div class="h1"><span>🏅 Badges</span><span
+                            style="color:var(--muted);font-size:12px">colección</span></div>
+                    <div class="badgegrid" id="badgeGrid"></div>
+                </div>
+            </div>
+
+            <div style="margin-top:12px;">
+                <div class="h1"><span>📓 Diario</span><span style="color:var(--muted);font-size:12px">últimos
+                        registros</span></div>
+                <div class="diary" id="diary"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="nav">
+        <div class="navbar">
+            <button class="navbtn on" id="tabDex">
+                <div class="ico">📚</div>
+                <div>Dex</div>
+            </button>
+            <button class="navbtn" id="tabStats">
+                <div class="ico">📊</div>
+                <div>Stats</div>
+            </button>
+            <div class="fab" id="openAdd"><span>＋</span></div>
+            <button class="navbtn" id="tabProfile">
+                <div class="ico">🧑‍🍻</div>
+                <div>Perfil</div>
+            </button>
+            <button class="navbtn" id="tabHelp" title="Tip rápido">
+                <div class="ico">🪵</div>
+                <div>Tip</div>
+            </button>
+        </div>
+    </div>
+
+    <!-- Add modal -->
+    <div class="modal" id="addModal" role="dialog" aria-modal="true">
+        <div class="sheet">
+            <div class="sheethead">
+                <h2>🪵 Captura en la taberna</h2>
+                <button class="xbtn" id="closeAdd">✕</button>
+            </div>
+            <div class="sheetbody">
+                <div class="twocol">
+                    <div>
+                        <input id="addSearch" type="search" placeholder="Buscar cerveza..." />
+                        <div class="mini" style="margin-top:8px;">Recientes arriba. Toca para seleccionar.</div>
+                        <div class="list" id="beerList" style="margin-top:10px;"></div>
+                    </div>
+
+                    <div>
+                        <div class="panel" style="padding:12px;">
+                            <div class="h1"><span>Selección</span><span class="tag" id="selTag">—</span></div>
+                            <div class="mini" id="selDesc">Elige una cerveza del catálogo para registrar.</div>
+
+                            <div style="margin-top:12px;">
+                                <div class="h1"><span>Tu rating (opcional)</span><span
+                                        style="color:var(--muted);font-size:12px" id="ratingLabel">0/5</span></div>
+                                <div class="stars" id="stars"></div>
+                                <div class="mini">Puedes dejarlo en 0 y ya lo valoras otro día.</div>
+                            </div>
+
+                            <div style="margin-top:12px;">
+                                <div class="h1"><span>Foto (opcional)</span><span class="tag">📸</span></div>
+                                <div class="fileRow">
+                                    <input id="photoInput" class="fileInput" type="file" accept="image/*"
+                                        capture="environment" />
+                                    <button id="photoBtn" class="fileBtn small" type="button">🧾 Subir
+                                        evidencia</button>
+                                    <div id="photoMeta" class="fileMeta">Sin foto</div>
+                                </div>
+                                <div class="mini">Ojo: guardar fotos en localStorage tiene límite. Si pesa mucho, usa
+                                    pocas.</div>
+                            </div>
+
+                            <div style="margin-top:12px;">
+                                <div class="h1"><span>Nota mini (opcional)</span><span class="tag">📝</span></div>
+                                <textarea id="noteInput" rows="3" maxlength="120"
+                                    placeholder="Suave, amarga, peligrosa… (máx 120)"></textarea>
+                            </div>
+
+                            <div style="margin-top:12px;">
+                                <button class="btn primary" id="saveBtn">🍺 Guardar</button>
+                            </div>
+
+                            <div class="mini" id="saveHint">Tip: elige cerveza y guarda. Lo demás es opcional.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Details modal -->
+    <div class="modal" id="detailModal" role="dialog" aria-modal="true">
+        <div class="sheet">
+            <div class="sheethead">
+                <div class="modalTitleRow">
+                    <div id="beerModalIcon"></div>
+                    <div>
+                        <div id="dTitle" class="modalTitle">Detalles</div>
+                        <div id="dSub" class="modalSub">Info de la cerveza</div>
+                    </div>
+                </div>
+                <button class="xbtn" id="closeDetail">✕</button>
+            </div>
+            <div class="sheetbody" id="detailBody"></div>
+        </div>
+    </div>
+
+    <!-- Onboarding / Edit Profile -->
+    <div class="modal" id="profileModal" role="dialog" aria-modal="true">
+        <div class="sheet">
+            <div class="sheethead">
+                <h2>🧑‍🍻 Tu avatar</h2>
+                <button class="xbtn" id="closeProfile">✕</button>
+            </div>
+            <div class="sheetbody">
+                <div class="panel" style="padding:12px;">
+                    <div class="h1"><span>Nombre</span><span class="tag">taberna</span></div>
+                    <input id="nameInput" type="text" placeholder="Ej: Dani / Laura / El Catador" maxlength="24">
+
+                    <div style="margin-top:12px;">
+                        <div class="h1"><span>Avatar</span><span class="tag">elige 1</span></div>
+                        <div class="avatars" id="avatarPick"></div>
+                        <div class="mini">Simple y divertido. Lo cambiamos cuando quieras.</div>
+                    </div>
+
+                    <div style="margin-top:12px;">
+                        <div class="h1"><span>Foto de avatar (opcional)</span><span class="tag">📸</span></div>
+                        <div class="fileRow">
+                            <input id="avatarPhotoInput" class="fileInput" type="file" accept="image/*" />
+                            <button id="avatarPhotoBtn" class="fileBtn" type="button">📸 Elegir foto</button>
+                            <div id="avatarPhotoMeta" class="fileMeta">Sin foto</div>
+                        </div>
+                        <div class="mini">Si subes una foto, se usa como avatar. Si no, se usa el emoji.</div>
+                    </div>
+
+                    <div style="margin-top:12px; display:flex; gap:10px;">
+                        <button class="btn primary" id="saveProfileBtn">🪵 Guardar perfil</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="toast" id="toast">
+        <div><b id="toastTop">+1 🍺</b></div>
+        <div class="line" id="toastLine">Nueva captura desbloqueada</div>
+    </div>
+
+    <!-- Zoom Modal -->
+    <div id="zoomModal" class="modal">
+        <img id="zoomImg" class="zoomImg" src="" alt="Vista ampliada">
+    </div>
+
+    <script>
+        /***********************
+         * BeerDex MVP v2
+         * - beers.json + badges.json
+         * - sin botón rápido: guardar siempre
+         * - rating/foto/nota opcionales
+         * - perfil con nombre + avatar + onboarding
+         ***********************/
+        const LS_RECORDS = "beerdex_records_v2";
+        const LS_USER = "beerdex_user_v2";
+
+        const LEVELS = [
+            { name: "Novato", min: 0, max: 199 },
+            { name: "Habitual", min: 200, max: 499 },
+            { name: "Catador", min: 500, max: 999 },
+            { name: "Épico", min: 1000, max: 1999 },
+            { name: "Legendario", min: 2000, max: 9999999 },
+        ];
+
+        // Defaults fallback (si fetch de JSON falla)
+        const DEFAULT_BEERS = [
+            { id: "chimay_blue", name: "Chimay Blue", brand: "Chimay", style: "Trappist", country: "BE", abv: 9.0, rarity: "mythic", emoji: "🕯️" },
+            { id: "guinness_draught", name: "Guinness Draught", brand: "Guinness", style: "Stout", country: "IE", abv: 4.2, rarity: "rare", emoji: "🖤" },
+            { id: "estrella_galicia", name: "Estrella Galicia", brand: "Hijos de Rivera", style: "Lager", country: "ES", abv: 5.5, rarity: "common", emoji: "⭐" },
+            { id: "mahou_5e", name: "Mahou 5 Estrellas", brand: "Mahou", style: "Lager", country: "ES", abv: 5.5, rarity: "common", emoji: "🍺" },
+        ];
+        const DEFAULT_BADGES = [
+            { id: "first", name: "Primer brindis", icon: "🥂", desc: "Registra tu primera cerveza", rule: { type: "total_records", gte: 1 } },
+            { id: "ten_unique", name: "Explorador", icon: "🧭", desc: "10 cervezas únicas", rule: { type: "unique_beers_year", gte: 10 } },
+            { id: "photo_three", name: "Evidencia", icon: "📸", desc: "3 registros con foto", rule: { type: "photos_year", gte: 3 } },
+            { id: "mythic_one", name: "Cazador mítico", icon: "🔥", desc: "Captura 1 cerveza mítica", rule: { type: "mythics_year", gte: 1 } },
+        ];
+
+        let CATALOG = [];
+        let BADGES = [];
+
+        let records = loadJSON(LS_RECORDS, []);
+        let user = loadJSON(LS_USER, { xp: 0, badges: [], name: "", avatar: "🙂", avatarPhoto: null });
+
+        // UI refs
+        const topAvatar = el("topAvatar");
+        const topName = el("topName");
+        const userChip = el("userChip");
+
+        const viewDex = el("viewDex"), viewStats = el("viewStats"), viewProfile = el("viewProfile");
+        const tabDex = el("tabDex"), tabStats = el("tabStats"), tabProfile = el("tabProfile"), tabHelp = el("tabHelp");
+        const openAdd = el("openAdd"), addModal = el("addModal"), closeAdd = el("closeAdd");
+        const addSearch = el("addSearch"), beerList = el("beerList");
+        const starsWrap = el("stars"), ratingLabel = el("ratingLabel");
+        const noteInput = el("noteInput"), photoInput = el("photoInput");
+        const photoBtn = el("photoBtn"), photoMeta = el("photoMeta");
+        const saveBtn = el("saveBtn");
+        const selTag = el("selTag"), selDesc = el("selDesc");
+
+        const dexGrid = el("dexGrid"), dexSearch = el("dexSearch"), dexFilter = el("dexFilter");
+        const styleChips = el("styleChips");
+        const dexProgress = el("dexProgress");
+        const toast = el("toast"), toastTop = el("toastTop"), toastLine = el("toastLine");
+
+        const lvlName = el("lvlName"), xpText = el("xpText"), xpBar = el("xpBar");
+        const yearLabel = el("yearLabel");
+        const kTotal = el("kTotal"), kUnique = el("kUnique"), kAvg = el("kAvg");
+        const dexPct = el("dexPct"), dexBar = el("dexBar"), dexMini = el("dexMini");
+        const topStyles = el("topStyles"), topBeers = el("topBeers");
+        const profileLevel = el("profileLevel"), pXP = el("pXP"), pNext = el("pNext"), badgeGrid = el("badgeGrid"), diary = el("diary");
+        const pNameLine = el("pNameLine");
+        const editProfileBtn = el("editProfileBtn");
+
+        const resetBtn = el("resetBtn"), exportBtn = el("exportBtn"), importInput = el("importInput");
+
+        const detailModal = el("detailModal"), closeDetail = el("closeDetail"), dTitle = el("dTitle"), detailBody = el("detailBody");
+        const zoomModal = el("zoomModal"), zoomImg = el("zoomImg");
+
+        // Profile modal (onboarding/edit)
+        const profileModal = el("profileModal");
+        const closeProfile = el("closeProfile");
+        const nameInput = el("nameInput");
+        const avatarPick = el("avatarPick");
+        const saveProfileBtn = el("saveProfileBtn");
+        const avatarPhotoInput = el("avatarPhotoInput");
+        const avatarPhotoBtn = el("avatarPhotoBtn");
+        const avatarPhotoMeta = el("avatarPhotoMeta");
+        let avatarPhotoData = null;
+
+        // Add flow state
+        let selectedBeerId = null;
+        let selectedRating = 0;
+        let selectedPhotoData = null;
+
+        init();
+
+        async function init() {
+            renderStars();
+            bindNav();
+            bindDexControls();
+            bindAddModal();
+            bindProfileTools();
+            buildAvatarPicker();
+
+            await loadDataFiles(); // beers.json & badges.json
+            buildStyleChips();     // needs catalog
+            renderAll();
+
+            // onboarding si no hay nombre
+            if (!user.name) {
+                openProfileModal(true);
+            }
+        }
+
+        async function loadDataFiles() {
+            const [beerRes, badgeRes] = await Promise.allSettled([
+                fetch("beers.json", { cache: "no-store" }),
+                fetch("badges.json", { cache: "no-store" })
+            ]);
+
+            let from = "DEFAULT";
+
+            try {
+                if (beerRes.status === "fulfilled" && beerRes.value.ok) {
+                    const bj = await beerRes.value.json();
+                    if (bj && Array.isArray(bj.beers)) {
+                        CATALOG = bj.beers;
+                        from = "JSON";
+                    }
+                }
+            } catch (e) { }
+
+            try {
+                if (badgeRes.status === "fulfilled" && badgeRes.value.ok) {
+                    const dj = await badgeRes.value.json();
+                    if (dj && Array.isArray(dj.badges)) {
+                        BADGES = dj.badges;
+                        from = (from === "JSON") ? "JSON" : from;
+                    }
+                }
+            } catch (e) { }
+
+            if (!CATALOG.length) CATALOG = DEFAULT_BEERS.slice();
+            if (!BADGES.length) BADGES = DEFAULT_BADGES.slice();
+
+            const dataSourceTag = document.getElementById("dataSourceTag");
+            if (dataSourceTag) dataSourceTag.textContent = (from === "JSON") ? "JSON" : "DEFAULT";
+            if (from !== "JSON") {
+                showToast("🪵 Modo local", "No pude leer beers.json/badges.json. Abre con servidor local y listo.");
+            }
+        }
+
+        function bindNav() {
+            tabDex.onclick = () => setView("dex");
+            tabStats.onclick = () => setView("stats");
+            tabProfile.onclick = () => setView("profile");
+            tabHelp.onclick = () => showToast("🪵 Tip de taberna", "Captura con +. Completa tu BeerDex como una Pokédex.");
+            openAdd.onclick = openAddModal;
+
+            addModal.addEventListener("click", (e) => { if (e.target === addModal) closeAddModal(); });
+            closeAdd.onclick = closeAddModal;
+
+            detailModal.addEventListener("click", (e) => { if (e.target === detailModal) closeDetailModal(); });
+            closeDetail.onclick = closeDetailModal;
+
+            userChip.onclick = () => openProfileModal(false);
+            editProfileBtn.onclick = () => openProfileModal(false);
+
+            profileModal.addEventListener("click", (e) => { if (e.target === profileModal) closeProfileModal(); });
+            closeProfile.onclick = closeProfileModal;
+
+            avatarPhotoBtn.onclick = () => avatarPhotoInput.click();
+
+            avatarPhotoInput.addEventListener("change", async (e) => {
+                const f = e.target.files && e.target.files[0];
+                if (!f) {
+                    avatarPhotoData = null;
+                    if (avatarPhotoMeta) avatarPhotoMeta.textContent = "Sin foto";
+                    return;
+                }
+                avatarPhotoData = await fileToSquareDataURL(f, 256);
+                if (avatarPhotoMeta) avatarPhotoMeta.textContent = f.name;
+            });
+
+            zoomModal.onclick = () => zoomModal.classList.remove("on");
+        }
+
+        function setView(which) {
+            viewDex.style.display = (which === "dex") ? "" : "none";
+            viewStats.style.display = (which === "stats") ? "" : "none";
+            viewProfile.style.display = (which === "profile") ? "" : "none";
+
+            tabDex.classList.toggle("on", which === "dex");
+            tabStats.classList.toggle("on", which === "stats");
+            tabProfile.classList.toggle("on", which === "profile");
+
+            if (which === "stats") renderStats();
+            if (which === "profile") renderProfile();
+            if (which === "dex") renderDex();
+        }
+
+        function bindDexControls() {
+            dexSearch.addEventListener("input", () => renderDex());
+            dexFilter.addEventListener("change", () => renderDex());
+        }
+
+        function buildStyleChips() {
+            styleChips.innerHTML = "";
+            const styles = [...new Set(CATALOG.map(b => b.style))].sort();
+            styleChips.appendChild(chip("Todos", true, () => { setChip("Todos"); renderDex(); }));
+            for (const st of styles) {
+                styleChips.appendChild(chip(st, false, () => { setChip(st); renderDex(); }));
+            }
+            setChip("Todos");
+        }
+
+        function chip(label, on, handler) {
+            const c = document.createElement("div");
+            c.className = "chip" + (on ? " on" : "");
+            c.textContent = label;
+            c.onclick = handler;
+            return c;
+        }
+
+        function setChip(label) {
+            [...styleChips.children].forEach(ch => ch.classList.toggle("on", ch.textContent === label));
+        }
+
+        function activeStyle() {
+            const on = [...styleChips.children].find(ch => ch.classList.contains("on"));
+            return on ? on.textContent : "Todos";
+        }
+
+        function bindAddModal() {
+            addSearch.addEventListener("input", () => renderBeerPicker());
+
+            photoBtn.onclick = () => photoInput.click();
+
+            photoInput.addEventListener("change", async (e) => {
+                const f = e.target.files && e.target.files[0];
+                if (!f) {
+                    selectedPhotoData = null;
+                    if (photoMeta) photoMeta.textContent = "Sin foto";
+                    return;
+                }
+                selectedPhotoData = await fileToDataURL(f, 900);
+                if (photoMeta) photoMeta.textContent = f.name;
+            });
+
+            saveBtn.onclick = saveRecord;
+        }
+
+        function openAddModal() {
+            selectedBeerId = null;
+            selectedRating = 0;
+            selectedPhotoData = null;
+            addSearch.value = "";
+            noteInput.value = "";
+            photoInput.value = "";
+            if (photoMeta) photoMeta.textContent = "Sin foto";
+
+            selTag.textContent = "—";
+            selDesc.textContent = "Elige una cerveza del catálogo para registrar.";
+            setRating(0);
+
+            addModal.classList.add("on");
+            renderBeerPicker();
+        }
+        function closeAddModal() { addModal.classList.remove("on"); }
+
+        function renderBeerPicker() {
+            const q = addSearch.value.trim().toLowerCase();
+            const recentIds = getRecentBeerIds(6);
+            const recent = CATALOG.filter(b => recentIds.includes(b.id));
+            const rest = CATALOG.filter(b => !recentIds.includes(b.id));
+
+            let list = [];
+            if (recent.length) {
+                list.push({ type: "head", label: "Recientes" });
+                list.push(...recent.map(b => ({ type: "beer", beer: b })));
+            }
+            list.push({ type: "head", label: "Catálogo" });
+            list.push(...rest.map(b => ({ type: "beer", beer: b })));
+
+            if (q) {
+                list = list.filter(x => {
+                    if (x.type !== "beer") return true;
+                    const b = x.beer;
+                    return (b.name + " " + b.brand + " " + b.style + " " + b.country).toLowerCase().includes(q);
+                });
+            }
+
+            beerList.innerHTML = "";
+            for (const x of list) {
+                if (x.type === "head") {
+                    const d = document.createElement("div");
+                    d.className = "mini";
+                    d.style.margin = "8px 0 0";
+                    d.textContent = x.label;
+                    beerList.appendChild(d);
+                    continue;
+                }
+                const b = x.beer;
+                const it = document.createElement("div");
+                it.className = "item";
+                it.innerHTML = `
+          <div>
+            <b>${escapeHTML(b.name)}</b>
+            <small>${escapeHTML(b.brand)} • ${escapeHTML(b.style)} • ${escapeHTML(b.country)} • ${b.abv}%</small>
+          </div>
+          <div class="tag">${rarityLabel(b.rarity)}</div>
+        `;
+                it.onclick = () => {
+                    selectedBeerId = b.id;
+                    selTag.textContent = b.style;
+                    selDesc.textContent = `${b.emoji || "🍺"} ${b.name} — ${b.brand} • ${b.country} • ${b.abv}% • ${rarityLabel(b.rarity)}.`;
+                    showToast("🍻 Seleccionada", b.name);
+                };
+                beerList.appendChild(it);
+            }
+        }
+
+        function renderStars() {
+            starsWrap.innerHTML = "";
+            for (let i = 1; i <= 5; i++) {
+                const s = document.createElement("div");
+                s.className = "star";
+                s.textContent = "★";
+                s.onclick = () => setRating(i);
+                starsWrap.appendChild(s);
+            }
+            // permite 0: tocar de nuevo para bajar a 0 (opcional)
+            starsWrap.onclick = (e) => {
+                if (e.target === starsWrap) setRating(0);
+            };
+            setRating(0);
+        }
+
+        function setRating(n) {
+            selectedRating = n;
+            ratingLabel.textContent = `${n}/5`;
+            [...starsWrap.children].forEach((s, idx) => s.classList.toggle("on", idx < n));
+        }
+
+        function saveRecord() {
+            if (!selectedBeerId) {
+                showToast("🪵 Falta cerveza", "Elige una del catálogo y luego guarda.");
+                return;
+            }
+
+            const beer = CATALOG.find(b => b.id === selectedBeerId);
+            const now = Date.now();
+            const year = new Date(now).getFullYear();
+
+            const note = (noteInput.value || "").trim();
+            const photo = selectedPhotoData || null;
+            const rating = selectedRating || 0; // ahora opcional
+
+            const alreadyOwned = hasBeer(beer.id);
+
+            records.unshift({
+                id: cryptoId(),
+                beerId: beer.id,
+                ts: now,
+                year,
+                rating,
+                note,
+                photo
+            });
+
+            // XP: premiar registro + nueva captura + extras
+            let gained = 10;
+            if (!alreadyOwned) gained += 25;
+            if (photo) gained += 10;
+            if (note) gained += 5;
+
+            user.xp += gained;
+
+            const stats = computeStats();
+            const newly = grantBadges(stats);
+
+            persist();
+            closeAddModal();
+            renderAll();
+
+            const top = (!alreadyOwned) ? "🧿 Nueva captura" : "🍺 +1 al diario";
+            const line = `${beer.name} — +${gained} XP` + (newly.length ? ` • Badge: ${newly[0].icon} ${newly[0].name}` : "");
+            showToast(top, line);
+        }
+
+        function renderAll() {
+            updateTopUser();
+            updateTopXP();
+            renderDex();
+            renderStats();
+            renderProfile();
+        }
+
+        function updateTopUser() {
+            topName.textContent = user.name || "Invitado";
+
+            if (user.avatarPhoto) {
+                topAvatar.innerHTML = `<img src="${user.avatarPhoto}" alt="avatar">`;
+            } else {
+                topAvatar.textContent = user.avatar || "🙂";
+            }
+        }
+
+        function updateTopXP() {
+            const lvl = levelFromXP(user.xp);
+            lvlName.textContent = lvl.name;
+            xpText.textContent = `${user.xp} XP`;
+
+            const span = lvl.max - lvl.min;
+            const pos = Math.min(1, Math.max(0, (user.xp - lvl.min) / span));
+            xpBar.style.width = `${Math.round(pos * 100)}%`;
+        }
+
+        function renderDex() {
+            const q = dexSearch.value.trim().toLowerCase();
+            const filt = dexFilter.value;
+            const st = activeStyle();
+
+            const ownedMap = new Map();
+            for (const r of records) {
+                const prev = ownedMap.get(r.beerId);
+                if (!prev) ownedMap.set(r.beerId, { count: 1, best: r.rating || 0 });
+                else ownedMap.set(r.beerId, { count: prev.count + 1, best: Math.max(prev.best, r.rating || 0) });
+            }
+
+            let items = CATALOG.slice();
+
+            if (st !== "Todos") items = items.filter(b => b.style === st);
+
+            if (q) {
+                items = items.filter(b => (b.name + " " + b.brand + " " + b.style + " " + b.country).toLowerCase().includes(q));
+            }
+
+            if (filt === "owned") items = items.filter(b => ownedMap.has(b.id));
+            if (filt === "missing") items = items.filter(b => !ownedMap.has(b.id));
+            if (filt === "top") {
+                items = items
+                    .filter(b => ownedMap.has(b.id))
+                    .sort((a, b) => (ownedMap.get(b.id).best - ownedMap.get(a.id).best) || (ownedMap.get(b.id).count - ownedMap.get(a.id).count));
+            }
+
+            dexProgress.textContent = `${ownedMap.size}/${CATALOG.length}`;
+
+            dexGrid.innerHTML = "";
+            for (const b of items) {
+                const owned = ownedMap.get(b.id);
+                const c = document.createElement("div");
+                c.className = "card" + (owned ? "" : " locked");
+
+                const rcls = (b.rarity === "mythic") ? "mythic" : (b.rarity === "rare" ? "rare" : "common");
+                const best = owned ? owned.best : 0;
+
+                // Create rarity badge
+                const rarityDiv = document.createElement("div");
+                rarityDiv.className = `rarity ${rcls}`;
+                rarityDiv.textContent = rarityLabel(b.rarity);
+                c.appendChild(rarityDiv);
+
+                // Create thumb with beer icon (image or emoji fallback)
+                const thumbDiv = document.createElement("div");
+                thumbDiv.className = "thumb";
+                thumbDiv.appendChild(renderBeerIcon(b));
+                c.appendChild(thumbDiv);
+
+                // Create name and meta
+                const nameDiv = document.createElement("div");
+                nameDiv.className = "name";
+                nameDiv.textContent = b.name;
+                c.appendChild(nameDiv);
+
+                const metaDiv = document.createElement("div");
+                metaDiv.className = "meta";
+                metaDiv.innerHTML = `
+            <span>${escapeHTML(b.style)}</span>
+            <span>${owned ? (best ? ("★".repeat(best)) : "—") : ""}</span>
+          `;
+                c.appendChild(metaDiv);
+
+                c.onclick = () => openDetails(b.id);
+                dexGrid.appendChild(c);
+            }
+        }
+
+        function openDetails(beerId) {
+            const beer = CATALOG.find(b => b.id === beerId);
+            const entries = records.filter(r => r.beerId === beerId);
+            const owned = entries.length > 0;
+
+            // Icono grande en header
+            const beerModalIcon = el("beerModalIcon");
+            beerModalIcon.innerHTML = "";
+
+            if (owned) {
+                beerModalIcon.appendChild(renderBeerBigIcon(beer));
+                el("dTitle").textContent = beer.name;
+                el("dSub").textContent = `${beer.brand} • ${beer.style} • ${beer.country} • ${beer.abv}%`;
+            } else {
+                beerModalIcon.innerHTML = `<div class="beerBigIcon"><span class="fallback">❔</span></div>`;
+                el("dTitle").textContent = "???";
+                el("dSub").textContent = "Aún no capturada. Regístrala para revelarla en tu BeerDex.";
+            }
+
+            const rated = entries.filter(e => (e.rating || 0) > 0);
+            const best = rated.length ? Math.max(...rated.map(e => e.rating)) : 0;
+            const last = owned ? new Date(entries[0].ts).toLocaleString() : "—";
+
+            detailBody.innerHTML = `
+        <div class="panel" style="padding:12px;">
+          <div class="h1"><span>Estadísticas personales</span><span class="tag">${rarityLabel(beer.rarity)}</span></div>
+          <div class="row" style="margin-top:12px;">
+            <div class="kpi">
+              <div><div class="n">${owned ? entries.length : 0}</div><div class="l">Registros</div></div>
+              <div class="tag">📓</div>
+            </div>
+            <div class="kpi">
+              <div><div class="n">${owned ? (best ? best.toFixed(0) : "—") : "—"}</div><div class="l">Mejor rating</div></div>
+              <div class="tag">⭐</div>
+            </div>
+            <div class="kpi">
+              <div><div class="n" style="font-size:14px">${owned ? escapeHTML(last) : "—"}</div><div class="l">Última vez</div></div>
+              <div class="tag">🕯️</div>
+            </div>
+          </div>
+
+          <div style="margin-top:12px; display:flex; gap:10px; flex-wrap:wrap;">
+            <button class="btn primary" onclick="(function(){ window.__beerdex_openAddWith('${beer.id}') })()">➕ Registrar esta</button>
+            ${owned ? `<button class="btn danger" onclick="(function(){ window.__beerdex_deleteBeer('${beer.id}') })()">🧯 Borrar registros</button>` : ``}
+          </div>
+
+          ${owned ? `<div class="mini" style="margin-top:10px;">Últimos registros:</div>` : ``}
+          ${owned ? entries.slice(0, 6).map(e => entryHTML(e, beer)).join("") : ``}
+        </div>
+      `;
+
+            window.__beerdex_openAddWith = (id) => {
+                closeDetailModal();
+                openAddModal();
+                selectedBeerId = id;
+                const b = CATALOG.find(x => x.id === id);
+                selTag.textContent = b.style;
+                selDesc.textContent = `${b.emoji || "🍺"} ${b.name} — ${b.brand} • ${b.country} • ${b.abv}% • ${rarityLabel(b.rarity)}.`;
+                showToast("🍻 Lista", "Guarda cuando quieras. Rating opcional.");
+            };
+            window.__beerdex_deleteBeer = (id) => {
+                if (confirm("¿Borrar todos los registros de esta cerveza?")) {
+                    records = records.filter(r => r.beerId !== id);
+                    persist();
+                    renderAll();
+                    showToast("🧯 Hecho", "Registros borrados.");
+                    closeDetailModal();
+                }
+            };
+
+            detailModal.classList.add("on");
+        }
+        function closeDetailModal() { detailModal.classList.remove("on"); }
+
+        function entryHTML(e, beer) {
+            const dt = new Date(e.ts).toLocaleString();
+            const stars = (e.rating || 0) ? ("★".repeat(e.rating)) : "—";
+            const img = e.photo ? `<img src="${e.photo}" alt="foto cerveza" onclick="openZoom(this.src)" style="cursor:zoom-in;">` : "";
+            const note = e.note ? `<div class="note">${escapeHTML(e.note)}</div>` : "";
+            return `
+        <div class="entry" style="margin-top:10px;">
+          <b>${escapeHTML(beer.name)} <span style="color:var(--muted);font-weight:700;">${stars}</span></b>
+          <div class="m"><span>${escapeHTML(dt)}</span><span style="color:var(--muted)">${escapeHTML(beer.style)}</span></div>
+          ${note}
+          ${img}
+        </div>
+      `;
+        }
+
+        function renderStats() {
+            const now = new Date();
+            const y = now.getFullYear();
+            yearLabel.textContent = `${y}`;
+
+            const stats = computeStats();
+
+            kTotal.textContent = stats.total;
+            kUnique.textContent = stats.unique;
+
+            if (stats.ratedCount > 0) {
+                kAvg.textContent = stats.avgRated.toFixed(1);
+            } else {
+                kAvg.textContent = "—";
+            }
+
+            const pct = CATALOG.length ? Math.round((stats.uniqueAllTime / CATALOG.length) * 100) : 0;
+            dexPct.textContent = `${pct}%`;
+            dexBar.style.width = `${pct}%`;
+            dexMini.textContent = `${stats.uniqueAllTime} de ${CATALOG.length} capturadas (total).`;
+
+            topStyles.innerHTML = "";
+            const stylePairs = Object.entries(stats.styleCountYear).sort((a, b) => b[1] - a[1]).slice(0, 5);
+            const maxStyle = stylePairs.length ? stylePairs[0][1] : 1;
+            for (const [name, val] of stylePairs) {
+                topStyles.appendChild(barRow(name, val, maxStyle));
+            }
+            if (!stylePairs.length) {
+                topStyles.innerHTML = `<div class="mini">Aún no hay datos del año. Captura tu primera 🍻</div>`;
+            }
+
+            topBeers.innerHTML = "";
+            const ownedMap = new Map();
+            for (const r of records) {
+                const prev = ownedMap.get(r.beerId);
+                const rr = (r.rating || 0);
+                if (!prev) ownedMap.set(r.beerId, { count: 1, best: rr });
+                else ownedMap.set(r.beerId, { count: prev.count + 1, best: Math.max(prev.best, rr) });
+            }
+            const top = [...ownedMap.entries()]
+                .map(([beerId, info]) => ({ beerId, ...info, name: (CATALOG.find(b => b.id === beerId) || {}).name || "—" }))
+                .sort((a, b) => (b.best - a.best) || (b.count - a.count))
+                .slice(0, 6);
+
+            const maxCount = top.length ? top[0].count : 1;
+            for (const t of top) {
+                topBeers.appendChild(barRow(`${t.name} ${t.best ? ("★" + t.best) : "—"}`, t.count, maxCount));
+            }
+            if (!top.length) {
+                topBeers.innerHTML = `<div class="mini">Tu top aparecerá aquí cuando registres cervezas.</div>`;
+            }
+        }
+
+        function barRow(label, val, max) {
+            const row = document.createElement("div");
+            row.className = "barrow";
+            const pct = max ? Math.round((val / max) * 100) : 0;
+            row.innerHTML = `
+        <label title="${escapeHTML(label)}">${escapeHTML(label)}</label>
+        <div class="track"><div class="fill" style="width:${pct}%"></div></div>
+        <div class="val">${val}</div>
+      `;
+            return row;
+        }
+
+        function renderProfile() {
+            const stats = computeStats();
+            const lvl = levelFromXP(user.xp);
+
+            profileLevel.textContent = lvl.name;
+            pXP.textContent = user.xp;
+
+            pNameLine.textContent = `${user.name || "Invitado"} ${user.avatar || "🙂"}`;
+
+            const next = nextLevelFromXP(user.xp);
+            pNext.textContent = next ? `Siguiente nivel: ${next.name} (${next.min} XP)` : `Máximo nivel alcanzado. Leyenda de la taberna.`;
+
+            badgeGrid.innerHTML = "";
+            const ownedBadges = BADGES.filter(b => user.badges.includes(b.id));
+
+            if (!ownedBadges.length) {
+                badgeGrid.innerHTML = `<div class="mini">Aún no has conseguido badges. Captura una cerveza y empieza la leyenda 🍻</div>`;
+            } else {
+                for (const b of ownedBadges) {
+                    const d = document.createElement("div");
+                    d.className = "badge on";
+                    d.innerHTML = `
+                        <span style="font-size:14px">${escapeHTML(b.icon || "🏅")}</span>
+                        <div>
+                            <div style="font-weight:850">${escapeHTML(b.name)}</div>
+                            <div style="color:var(--muted);font-size:11px">${escapeHTML(b.desc || "")}</div>
+                        </div>`;
+                    badgeGrid.appendChild(d);
+                }
+            }
+
+            diary.innerHTML = "";
+            const last = records.slice(0, 18);
+            if (!last.length) {
+                diary.innerHTML = `<div class="mini">Tu diario está vacío. Pulsa <b>+</b> y captura la primera 🍺</div>`;
+                return;
+            }
+            for (const r of last) {
+                const beer = CATALOG.find(b => b.id === r.beerId);
+                const e = document.createElement("div");
+                e.className = "entry";
+                const dt = new Date(r.ts).toLocaleString();
+                const stars = (r.rating || 0) ? ("★".repeat(r.rating)) : "—";
+                e.innerHTML = `
+          <b>${escapeHTML(beer ? beer.name : r.beerId)} <span style="color:var(--muted);font-weight:700;">${stars}</span></b>
+          <div class="m"><span>${escapeHTML(dt)}</span><span>${beer ? escapeHTML(beer.style) : ""}</span></div>
+          ${r.note ? `<div class="note">${escapeHTML(r.note)}</div>` : ``}
+          ${r.photo ? `<img src="${r.photo}" alt="foto cerveza" onclick="openZoom(this.src)" style="cursor:zoom-in;">` : ``}
+        `;
+                diary.appendChild(e);
+            }
+        }
+
+        function bindProfileTools() {
+            resetBtn.onclick = () => {
+                if (confirm("Esto borra tu BeerDex local (registros, XP, badges y perfil). ¿Seguro?")) {
+                    records = [];
+                    user = { xp: 0, badges: [], name: "", avatar: "🙂" };
+                    persist();
+                    renderAll();
+                    showToast("🧯 Reset", "Tu taberna vuelve a oler a nueva.");
+                    openProfileModal(true);
+                }
+            };
+
+            exportBtn.onclick = () => {
+                const payload = { records, user, version: 2, exportedAt: new Date().toISOString() };
+                const blob = new Blob([JSON.stringify(payload, null, 2)], { type: "application/json" });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement("a");
+                a.href = url;
+                a.download = "beerdex_export.json";
+                a.click();
+                URL.revokeObjectURL(url);
+                showToast("📦 Exportado", "beerdex_export.json descargado.");
+            };
+
+            importInput.onchange = async (e) => {
+                const f = e.target.files && e.target.files[0];
+                if (!f) return;
+                try {
+                    const txt = await f.text();
+                    const obj = JSON.parse(txt);
+                    if (!obj || !Array.isArray(obj.records) || !obj.user) throw new Error("Formato inválido");
+                    records = obj.records;
+                    user = obj.user;
+                    persist();
+                    renderAll();
+                    showToast("📥 Importado", "Tu taberna ha recuperado la memoria.");
+                } catch (err) {
+                    showToast("⚠️ Error", "No pude importar ese archivo.");
+                } finally {
+                    importInput.value = "";
+                }
+            };
+        }
+
+        // Onboarding / Edit Profile
+        function buildAvatarPicker() {
+            const options = ["🙂", "😎", "🧔", "👩", "🧙", "🧝", "🧛", "🐺", "🦊", "🐻", "🦁", "🐉", "🍺", "🥨", "🪵", "🔥"];
+            avatarPick.innerHTML = "";
+            for (const a of options) {
+                const d = document.createElement("div");
+                d.className = "ava";
+                d.textContent = a;
+                d.onclick = () => {
+                    [...avatarPick.children].forEach(x => x.classList.remove("on"));
+                    d.classList.add("on");
+                    avatarPick.dataset.sel = a;
+                };
+                avatarPick.appendChild(d);
+            }
+        }
+
+        function commitProfileAndClose(force) {
+            const name = (nameInput.value || "").trim();
+            const ava = avatarPick.dataset.sel || "🙂";
+
+            if (force && !name) {
+                showToast("🪵 Falta nombre", "Pon un nombre para tu personaje.");
+                return false;
+            }
+
+            user.name = name || "Invitado";
+            user.avatar = ava;
+
+            // Si hay foto nueva en buffer, se guarda
+            if (typeof avatarPhotoData !== "undefined" && avatarPhotoData) {
+                user.avatarPhoto = avatarPhotoData;
+            }
+
+            persist();
+            updateTopUser();
+            renderProfile();
+            showToast("🍻 Perfil listo", `${user.name} ${user.avatarPhoto ? "📸" : user.avatar}`);
+            closeProfileModal();
+            return true;
+        }
+
+        function openProfileModal(force) {
+            nameInput.value = user.name || "";
+            avatarPhotoData = null;
+            if (avatarPhotoInput) avatarPhotoInput.value = "";
+            if (avatarPhotoMeta) avatarPhotoMeta.textContent = user.avatarPhoto ? "Foto guardada ✅" : "Sin foto";
+
+            const current = user.avatar || "🙂";
+            avatarPick.dataset.sel = current;
+            [...avatarPick.children].forEach(x => x.classList.toggle("on", x.textContent === current));
+
+            profileModal.classList.add("on");
+            closeProfile.style.display = force ? "none" : "";
+
+            nameInput.onkeydown = (e) => {
+                if (e.key === "Enter") {
+                    e.preventDefault();
+                    commitProfileAndClose(force);
+                }
+            };
+
+            saveProfileBtn.onclick = () => commitProfileAndClose(force);
+        }
+        function closeProfileModal() { profileModal.classList.remove("on"); }
+
+        function computeStats() {
+            const year = new Date().getFullYear();
+            const yr = records.filter(r => r.year === year);
+
+            const total = yr.length;
+
+            const uniqueYear = new Set(yr.map(r => r.beerId)).size;
+            const uniqueAllTime = new Set(records.map(r => r.beerId)).size;
+
+            const rated = yr.filter(r => (r.rating || 0) > 0);
+            const ratedCount = rated.length;
+            const avgRated = ratedCount ? (rated.reduce((a, b) => a + (b.rating || 0), 0) / ratedCount) : 0;
+
+            const styleCountYear = {};
+            let photos = 0, notes = 0, mythics = 0;
+
+            for (const r of yr) {
+                const beer = CATALOG.find(b => b.id === r.beerId);
+                if (beer) {
+                    styleCountYear[beer.style] = (styleCountYear[beer.style] || 0) + 1;
+                    if (beer.rarity === "mythic") mythics++;
+                }
+                if (r.photo) photos++;
+                if (r.note && r.note.trim()) notes++;
+            }
+            return { total, unique: uniqueYear, uniqueAllTime, ratedCount, avgRated, styleCountYear, photos, notes, mythics };
+        }
+
+        function grantBadges(stats) {
+            const newly = [];
+            for (const b of BADGES) {
+                if (user.badges.includes(b.id)) continue;
+                if (rulePasses(b.rule, stats)) {
+                    user.badges.push(b.id);
+                    newly.push(b);
+                }
+            }
+            return newly;
+        }
+
+        function rulePasses(rule, s) {
+            if (!rule || !rule.type) return false;
+            const gte = Number(rule.gte ?? 1);
+
+            switch (rule.type) {
+                case "total_records":
+                    return s.total >= gte;
+                case "unique_beers_year":
+                    return s.unique >= gte;
+                case "photos_year":
+                    return s.photos >= gte;
+                case "mythics_year":
+                    return s.mythics >= gte;
+                case "style_count_year":
+                    return (s.styleCountYear[rule.style] || 0) >= gte;
+                default:
+                    return false;
+            }
+        }
+
+        function hasBeer(beerId) {
+            return records.some(r => r.beerId === beerId);
+        }
+
+        function getRecentBeerIds(n) {
+            const out = [];
+            for (const r of records) {
+                if (!out.includes(r.beerId)) out.push(r.beerId);
+                if (out.length >= n) break;
+            }
+            return out;
+        }
+
+        function levelFromXP(xp) {
+            for (const l of LEVELS) {
+                if (xp >= l.min && xp <= l.max) return l;
+            }
+            return LEVELS[0];
+        }
+        function nextLevelFromXP(xp) {
+            const idx = LEVELS.findIndex(l => xp >= l.min && xp <= l.max);
+            if (idx >= 0 && idx < LEVELS.length - 1) return LEVELS[idx + 1];
+            return null;
+        }
+
+        function showToast(top, line) {
+            toastTop.textContent = top;
+            toastLine.textContent = line;
+            toast.classList.add("on");
+            clearTimeout(showToast._t);
+            showToast._t = setTimeout(() => toast.classList.remove("on"), 2800);
+        }
+
+        function persist() {
+            localStorage.setItem(LS_RECORDS, JSON.stringify(records));
+            localStorage.setItem(LS_USER, JSON.stringify(user));
+        }
+        function loadJSON(key, fallback) {
+            try {
+                const v = localStorage.getItem(key);
+                return v ? JSON.parse(v) : fallback;
+            } catch (e) {
+                return fallback;
+            }
+        }
+
+        function el(id) { return document.getElementById(id); }
+        function cryptoId() {
+            return (crypto && crypto.randomUUID) ? crypto.randomUUID() : String(Date.now()) + "_" + Math.random().toString(16).slice(2);
+        }
+        function rarityLabel(r) {
+            if (r === "mythic") return "Mítica";
+            if (r === "rare") return "Rara";
+            return "Común";
+        }
+        function escapeHTML(s) {
+            return String(s).replace(/[&<>"']/g, m => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[m]));
+        }
+
+        // Beer image helpers with fallback to emoji
+        function beerImgSrc(beer) {
+            // 1) Si viene en JSON, úsalo
+            if (beer.img) return beer.img;
+            // 2) Si no viene, asumimos convención por id
+            return `assets/beers/${beer.id}.png`;
+        }
+
+        function renderBeerIcon(beer) {
+            const wrap = document.createElement("div");
+            wrap.className = "beerIcon";
+
+            const img = document.createElement("img");
+            img.loading = "lazy";
+            img.alt = beer.name;
+
+            // Probamos PNG por convención o por campo img
+            img.src = beerImgSrc(beer);
+
+            // Si falla la imagen, volvemos al emoji
+            img.onerror = () => {
+                wrap.innerHTML = `<span class="fallback">${escapeHTML(beer.emoji || "🍺")}</span>`;
+            };
+
+            wrap.appendChild(img);
+            return wrap;
+        }
+
+        function renderBeerBigIcon(beer) {
+            const wrap = document.createElement("div");
+            wrap.className = "beerBigIcon";
+            wrap.style.cursor = "zoom-in";
+
+            const img = document.createElement("img");
+            img.loading = "lazy";
+            img.alt = beer.name;
+            const src = beerImgSrc(beer);
+            img.src = src;
+
+            img.onerror = () => {
+                wrap.innerHTML = `<span class="fallback">${escapeHTML(beer.emoji || "🍺")}</span>`;
+                wrap.style.cursor = "default";
+            };
+
+            wrap.onclick = (e) => {
+                if (!img.complete || img.naturalWidth === 0) return;
+                openZoom(src);
+            };
+
+            wrap.appendChild(img);
+            return wrap;
+        }
+
+        function openZoom(src) {
+            if (!src) return;
+            zoomImg.src = src;
+            zoomModal.classList.add("on");
+        }
+
+        async function fileToDataURL(file, maxSize) {
+            const img = await readImage(file);
+            const { w, h } = fitSize(img.width, img.height, maxSize);
+            const canvas = document.createElement("canvas");
+            canvas.width = w; canvas.height = h;
+            const ctx = canvas.getContext("2d");
+            ctx.drawImage(img, 0, 0, w, h);
+            return canvas.toDataURL("image/jpeg", 0.78);
+        }
+        function readImage(file) {
+            return new Promise((res, rej) => {
+                const fr = new FileReader();
+                fr.onload = () => {
+                    const img = new Image();
+                    img.onload = () => res(img);
+                    img.onerror = rej;
+                    img.src = fr.result;
+                };
+                fr.onerror = rej;
+                fr.readAsDataURL(file);
+            });
+        }
+        function fitSize(w, h, max) {
+            if (Math.max(w, h) <= max) return { w, h };
+            const r = max / Math.max(w, h);
+            return { w: Math.round(w * r), h: Math.round(h * r) };
+        }
+
+        async function fileToSquareDataURL(file, size) {
+            const img = await readImage(file);
+            const s = Math.min(img.width, img.height);
+            const sx = Math.floor((img.width - s) / 2);
+            const sy = Math.floor((img.height - s) / 2);
+
+            const canvas = document.createElement("canvas");
+            canvas.width = size; canvas.height = size;
+            const ctx = canvas.getContext("2d");
+            ctx.drawImage(img, sx, sy, s, s, 0, 0, size, size);
+            return canvas.toDataURL("image/jpeg", 0.80);
+        }
+
+        // Start on Dex
+        setView("dex");
+    </script>
+</body>
+
+</html>

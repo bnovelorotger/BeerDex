@@ -1,0 +1,1705 @@
+{
+  "version": 1,
+  "beers": [
+    {
+      "id": "mahou_5_estrellas",
+      "name": "Mahou 5 Estrellas",
+      "brand": "Mahou",
+      "style": "Lager",
+      "country": "ES",
+      "abv": 5.5,
+      "rarity": "common",
+      "emoji": "🍺"
+    },
+    {
+      "id": "mahou_clasica",
+      "name": "Mahou Clásica",
+      "brand": "Mahou",
+      "style": "Lager",
+      "country": "ES",
+      "abv": 4.8,
+      "rarity": "common",
+      "emoji": "🍺"
+    },
+    {
+      "id": "mahou_maestra",
+      "name": "Mahou Maestra",
+      "brand": "Mahou",
+      "style": "Doppelbock",
+      "country": "ES",
+      "abv": 7.5,
+      "rarity": "rare",
+      "emoji": "🍺"
+    },
+    {
+      "id": "mahou_negra",
+      "name": "Mahou Negra",
+      "brand": "Mahou",
+      "style": "Dark Lager",
+      "country": "ES",
+      "abv": 5.5,
+      "rarity": "rare",
+      "emoji": "🍺"
+    },
+    {
+      "id": "mahou_radler",
+      "name": "Mahou Radler",
+      "brand": "Mahou",
+      "style": "Radler",
+      "country": "ES",
+      "abv": 3.2,
+      "rarity": "common",
+      "emoji": "🍺"
+    },
+    {
+      "id": "mahou_0_0",
+      "name": "Mahou 0,0",
+      "brand": "Mahou",
+      "style": "Non-alcoholic",
+      "country": "ES",
+      "abv": 0.0,
+      "rarity": "common",
+      "emoji": "🍺"
+    },
+    {
+      "id": "mahou_sin_gluten",
+      "name": "Mahou Sin Gluten",
+      "brand": "Mahou",
+      "style": "Gluten-free Lager",
+      "country": "ES",
+      "abv": 5.5,
+      "rarity": "rare",
+      "emoji": "🍺"
+    },
+    {
+      "id": "mahou_barrica_bourbon",
+      "name": "Mahou Barrica Bourbon",
+      "brand": "Mahou",
+      "style": "Barrel-aged",
+      "country": "ES",
+      "abv": 7.0,
+      "rarity": "mythic",
+      "emoji": "🍺"
+    },
+    {
+      "id": "san_miguel_especial",
+      "name": "San Miguel Especial",
+      "brand": "San Miguel",
+      "style": "Lager",
+      "country": "ES",
+      "abv": 5.4,
+      "rarity": "common",
+      "emoji": "🍺"
+    },
+    {
+      "id": "san_miguel_0_0",
+      "name": "San Miguel 0,0",
+      "brand": "San Miguel",
+      "style": "Non-alcoholic",
+      "country": "ES",
+      "abv": 0.0,
+      "rarity": "common",
+      "emoji": "🍺"
+    },
+    {
+      "id": "san_miguel_sin_gluten",
+      "name": "San Miguel Sin Gluten",
+      "brand": "San Miguel",
+      "style": "Gluten-free Lager",
+      "country": "ES",
+      "abv": 5.4,
+      "rarity": "rare",
+      "emoji": "🍺"
+    },
+    {
+      "id": "san_miguel_radler",
+      "name": "San Miguel Radler",
+      "brand": "San Miguel",
+      "style": "Radler",
+      "country": "ES",
+      "abv": 3.2,
+      "rarity": "common",
+      "emoji": "🍺"
+    },
+    {
+      "id": "san_miguel_magna",
+      "name": "San Miguel Magna",
+      "brand": "San Miguel",
+      "style": "Lager",
+      "country": "ES",
+      "abv": 5.7,
+      "rarity": "common",
+      "emoji": "🍺"
+    },
+    {
+      "id": "san_miguel_magna_roja",
+      "name": "San Miguel Magna Roja",
+      "brand": "San Miguel",
+      "style": "Bock",
+      "country": "ES",
+      "abv": 6.2,
+      "rarity": "rare",
+      "emoji": "🍺"
+    },
+    {
+      "id": "san_miguel_selecta",
+      "name": "San Miguel Selecta",
+      "brand": "San Miguel",
+      "style": "Lager",
+      "country": "ES",
+      "abv": 6.2,
+      "rarity": "rare",
+      "emoji": "🍺"
+    },
+    {
+      "id": "san_miguel_yakima_valley_ipa",
+      "name": "San Miguel Yakima Valley IPA",
+      "brand": "San Miguel",
+      "style": "IPA",
+      "country": "ES",
+      "abv": 6.1,
+      "rarity": "rare",
+      "emoji": "🍺"
+    },
+    {
+      "id": "san_miguel_manila",
+      "name": "San Miguel Manila",
+      "brand": "San Miguel",
+      "style": "Pale Lager",
+      "country": "ES",
+      "abv": 5.4,
+      "rarity": "rare",
+      "emoji": "🍺"
+    },
+    {
+      "id": "san_miguel_1516",
+      "name": "San Miguel 1516",
+      "brand": "San Miguel",
+      "style": "Lager",
+      "country": "ES",
+      "abv": 4.8,
+      "rarity": "rare",
+      "emoji": "🍺"
+    },
+    {
+      "id": "san_miguel_fresca",
+      "name": "San Miguel Fresca",
+      "brand": "San Miguel",
+      "style": "Lager",
+      "country": "ES",
+      "abv": 4.0,
+      "rarity": "common",
+      "emoji": "🍺"
+    },
+    {
+      "id": "estrella_galicia",
+      "name": "Estrella Galicia",
+      "brand": "Estrella Galicia",
+      "style": "Lager",
+      "country": "ES",
+      "abv": 5.5,
+      "rarity": "common",
+      "emoji": "🍺"
+    },
+    {
+      "id": "estrella_galicia_0_0",
+      "name": "Estrella Galicia 0,0",
+      "brand": "Estrella Galicia",
+      "style": "Non-alcoholic",
+      "country": "ES",
+      "abv": 0.0,
+      "rarity": "common",
+      "emoji": "🍺"
+    },
+    {
+      "id": "estrella_galicia_sin_gluten",
+      "name": "Estrella Galicia Sin Gluten",
+      "brand": "Estrella Galicia",
+      "style": "Gluten-free Lager",
+      "country": "ES",
+      "abv": 5.5,
+      "rarity": "rare",
+      "emoji": "🍺"
+    },
+    {
+      "id": "1906_reserva_especial",
+      "name": "1906 Reserva Especial",
+      "brand": "1906",
+      "style": "Lager",
+      "country": "ES",
+      "abv": 6.5,
+      "rarity": "rare",
+      "emoji": "🍺"
+    },
+    {
+      "id": "1906_red_vintage",
+      "name": "1906 Red Vintage",
+      "brand": "1906",
+      "style": "Red Lager",
+      "country": "ES",
+      "abv": 8.0,
+      "rarity": "mythic",
+      "emoji": "🍺"
+    },
+    {
+      "id": "1906_black_coupage",
+      "name": "1906 Black Coupage",
+      "brand": "1906",
+      "style": "Dark Lager",
+      "country": "ES",
+      "abv": 7.2,
+      "rarity": "mythic",
+      "emoji": "🍺"
+    },
+    {
+      "id": "estrella_galicia_radler",
+      "name": "Estrella Galicia Radler",
+      "brand": "Estrella Galicia",
+      "style": "Radler",
+      "country": "ES",
+      "abv": 3.2,
+      "rarity": "common",
+      "emoji": "🍺"
+    },
+    {
+      "id": "estrella_damm",
+      "name": "Estrella Damm",
+      "brand": "Damm",
+      "style": "Lager",
+      "country": "ES",
+      "abv": 5.4,
+      "rarity": "common",
+      "emoji": "🍺"
+    },
+    {
+      "id": "free_damm_0_0",
+      "name": "Free Damm 0,0",
+      "brand": "Damm",
+      "style": "Non-alcoholic",
+      "country": "ES",
+      "abv": 0.0,
+      "rarity": "common",
+      "emoji": "🍺"
+    },
+    {
+      "id": "voll_damm",
+      "name": "Voll-Damm",
+      "brand": "Damm",
+      "style": "Märzen",
+      "country": "ES",
+      "abv": 7.2,
+      "rarity": "rare",
+      "emoji": "🍺"
+    },
+    {
+      "id": "inedit",
+      "name": "Inedit",
+      "brand": "Damm",
+      "style": "Wheat / Spiced",
+      "country": "ES",
+      "abv": 4.8,
+      "rarity": "rare",
+      "emoji": "🍺"
+    },
+    {
+      "id": "daura_damm",
+      "name": "Daura Damm",
+      "brand": "Damm",
+      "style": "Gluten-free Lager",
+      "country": "ES",
+      "abv": 5.4,
+      "rarity": "rare",
+      "emoji": "🍺"
+    },
+    {
+      "id": "estrella_damm_lemon",
+      "name": "Estrella Damm Lemon",
+      "brand": "Damm",
+      "style": "Radler",
+      "country": "ES",
+      "abv": 3.2,
+      "rarity": "common",
+      "emoji": "🍺"
+    },
+    {
+      "id": "complot_ipa",
+      "name": "Complot IPA",
+      "brand": "Damm",
+      "style": "IPA",
+      "country": "ES",
+      "abv": 5.6,
+      "rarity": "rare",
+      "emoji": "🍺"
+    },
+    {
+      "id": "turia_marzen",
+      "name": "Turia Märzen",
+      "brand": "Damm",
+      "style": "Märzen",
+      "country": "ES",
+      "abv": 5.4,
+      "rarity": "rare",
+      "emoji": "🍺"
+    },
+    {
+      "id": "moritz7",
+      "name": "Moritz 7",
+      "brand": "Moritz",
+      "style": "Lager",
+      "country": "ES",
+      "abv": 5.5,
+      "rarity": "common",
+      "emoji": "🍺"
+    },
+    {
+      "id": "moritz_epid_or",
+      "name": "Moritz Epidor",
+      "brand": "Moritz",
+      "style": "Bock",
+      "country": "ES",
+      "abv": 7.2,
+      "rarity": "rare",
+      "emoji": "🍺"
+    },
+    {
+      "id": "moritz_0_0",
+      "name": "Moritz 0,0",
+      "brand": "Moritz",
+      "style": "Non-alcoholic",
+      "country": "ES",
+      "abv": 0.0,
+      "rarity": "common",
+      "emoji": "🍺"
+    },
+    {
+      "id": "alhambra_especial",
+      "name": "Alhambra Especial",
+      "brand": "Alhambra",
+      "style": "Lager",
+      "country": "ES",
+      "abv": 5.4,
+      "rarity": "common",
+      "emoji": "🍺"
+    },
+    {
+      "id": "alhambra_reserva_1925",
+      "name": "Alhambra Reserva 1925",
+      "brand": "Alhambra",
+      "style": "Amber Lager",
+      "country": "ES",
+      "abv": 6.4,
+      "rarity": "rare",
+      "emoji": "🍺"
+    },
+    {
+      "id": "alhambra_reserva_roja",
+      "name": "Alhambra Reserva Roja",
+      "brand": "Alhambra",
+      "style": "Bock",
+      "country": "ES",
+      "abv": 7.2,
+      "rarity": "mythic",
+      "emoji": "🍺"
+    },
+    {
+      "id": "alhambra_0_0",
+      "name": "Alhambra 0,0",
+      "brand": "Alhambra",
+      "style": "Non-alcoholic",
+      "country": "ES",
+      "abv": 0.0,
+      "rarity": "common",
+      "emoji": "🍺"
+    },
+    {
+      "id": "alhambra_radler",
+      "name": "Alhambra Radler",
+      "brand": "Alhambra",
+      "style": "Radler",
+      "country": "ES",
+      "abv": 3.2,
+      "rarity": "common",
+      "emoji": "🍺"
+    },
+    {
+      "id": "alhambra_baltic_porter",
+      "name": "Alhambra Baltic Porter",
+      "brand": "Alhambra",
+      "style": "Porter",
+      "country": "ES",
+      "abv": 7.0,
+      "rarity": "mythic",
+      "emoji": "🍺"
+    },
+    {
+      "id": "alhambra_citra_ipa",
+      "name": "Alhambra Citra IPA",
+      "brand": "Alhambra",
+      "style": "IPA",
+      "country": "ES",
+      "abv": 6.0,
+      "rarity": "rare",
+      "emoji": "🍺"
+    },
+    {
+      "id": "alhambra_barrica_ron",
+      "name": "Alhambra Barrica de Ron",
+      "brand": "Alhambra",
+      "style": "Barrel-aged",
+      "country": "ES",
+      "abv": 7.0,
+      "rarity": "mythic",
+      "emoji": "🍺"
+    },
+    {
+      "id": "alhambra_barrica_px",
+      "name": "Alhambra Barrica Pedro Ximénez",
+      "brand": "Alhambra",
+      "style": "Barrel-aged",
+      "country": "ES",
+      "abv": 7.0,
+      "rarity": "mythic",
+      "emoji": "🍺"
+    },
+    {
+      "id": "alhambra_barrica_palo_cortado",
+      "name": "Alhambra Barrica Palo Cortado",
+      "brand": "Alhambra",
+      "style": "Barrel-aged",
+      "country": "ES",
+      "abv": 7.0,
+      "rarity": "mythic",
+      "emoji": "🍺"
+    },
+    {
+      "id": "cruzcampo",
+      "name": "Cruzcampo",
+      "brand": "Cruzcampo",
+      "style": "Lager",
+      "country": "ES",
+      "abv": 4.8,
+      "rarity": "common",
+      "emoji": "🍺"
+    },
+    {
+      "id": "cruzcampo_gran_reserva",
+      "name": "Cruzcampo Gran Reserva",
+      "brand": "Cruzcampo",
+      "style": "Lager",
+      "country": "ES",
+      "abv": 6.4,
+      "rarity": "rare",
+      "emoji": "🍺"
+    },
+    {
+      "id": "cruzcampo_radler",
+      "name": "Cruzcampo Radler",
+      "brand": "Cruzcampo",
+      "style": "Radler",
+      "country": "ES",
+      "abv": 3.2,
+      "rarity": "common",
+      "emoji": "🍺"
+    },
+    {
+      "id": "cruzcampo_0_0",
+      "name": "Cruzcampo 0,0",
+      "brand": "Cruzcampo",
+      "style": "Non-alcoholic",
+      "country": "ES",
+      "abv": 0.0,
+      "rarity": "common",
+      "emoji": "🍺"
+    },
+    {
+      "id": "amstel_original",
+      "name": "Amstel Original",
+      "brand": "Amstel",
+      "style": "Lager",
+      "country": "ES",
+      "abv": 5.0,
+      "rarity": "common",
+      "emoji": "🍺"
+    },
+    {
+      "id": "amstel_radler",
+      "name": "Amstel Radler",
+      "brand": "Amstel",
+      "style": "Radler",
+      "country": "ES",
+      "abv": 2.0,
+      "rarity": "common",
+      "emoji": "🍺"
+    },
+    {
+      "id": "amstel_0_0",
+      "name": "Amstel 0,0",
+      "brand": "Amstel",
+      "style": "Non-alcoholic",
+      "country": "ES",
+      "abv": 0.0,
+      "rarity": "common",
+      "emoji": "🍺"
+    },
+    {
+      "id": "amstel_oro",
+      "name": "Amstel Oro",
+      "brand": "Amstel",
+      "style": "Lager",
+      "country": "ES",
+      "abv": 6.2,
+      "rarity": "rare",
+      "emoji": "🍺"
+    },
+    {
+      "id": "heineken_es",
+      "name": "Heineken",
+      "brand": "Heineken",
+      "style": "Lager",
+      "country": "NL",
+      "abv": 5.0,
+      "rarity": "common",
+      "emoji": "🍺"
+    },
+    {
+      "id": "victoria",
+      "name": "Victoria",
+      "brand": "Victoria",
+      "style": "Lager",
+      "country": "ES",
+      "abv": 4.8,
+      "rarity": "common",
+      "emoji": "🍺"
+    },
+    {
+      "id": "victoria_malaga",
+      "name": "Victoria Málaga",
+      "brand": "Victoria",
+      "style": "Lager",
+      "country": "ES",
+      "abv": 4.8,
+      "rarity": "common",
+      "emoji": "🍺"
+    },
+    {
+      "id": "el_aguila_sin_filtrar",
+      "name": "El Águila Sin Filtrar",
+      "brand": "El Águila",
+      "style": "Lager",
+      "country": "ES",
+      "abv": 5.5,
+      "rarity": "rare",
+      "emoji": "🍺"
+    },
+    {
+      "id": "el_aguila_0_0",
+      "name": "El Águila 0,0",
+      "brand": "El Águila",
+      "style": "Non-alcoholic",
+      "country": "ES",
+      "abv": 0.0,
+      "rarity": "common",
+      "emoji": "🍺"
+    },
+    {
+      "id": "el_aguila_dorada",
+      "name": "El Águila Dorada",
+      "brand": "El Águila",
+      "style": "Lager",
+      "country": "ES",
+      "abv": 5.5,
+      "rarity": "common",
+      "emoji": "🍺"
+    },
+    {
+      "id": "estrella_levante",
+      "name": "Estrella de Levante",
+      "brand": "Estrella de Levante",
+      "style": "Lager",
+      "country": "ES",
+      "abv": 4.8,
+      "rarity": "common",
+      "emoji": "🍺"
+    },
+    {
+      "id": "estrella_levante_0_0",
+      "name": "Estrella de Levante 0,0",
+      "brand": "Estrella de Levante",
+      "style": "Non-alcoholic",
+      "country": "ES",
+      "abv": 0.0,
+      "rarity": "common",
+      "emoji": "🍺"
+    },
+    {
+      "id": "estrella_levante_sin_gluten",
+      "name": "Estrella de Levante Sin Gluten",
+      "brand": "Estrella de Levante",
+      "style": "Gluten-free Lager",
+      "country": "ES",
+      "abv": 5.0,
+      "rarity": "rare",
+      "emoji": "🍺"
+    },
+    {
+      "id": "ambar_especial",
+      "name": "Ámbar Especial",
+      "brand": "Ámbar",
+      "style": "Lager",
+      "country": "ES",
+      "abv": 5.2,
+      "rarity": "common",
+      "emoji": "🍺"
+    },
+    {
+      "id": "ambar_1900",
+      "name": "Ámbar 1900",
+      "brand": "Ámbar",
+      "style": "Lager",
+      "country": "ES",
+      "abv": 5.5,
+      "rarity": "rare",
+      "emoji": "🍺"
+    },
+    {
+      "id": "ambar_triple_zero",
+      "name": "Ámbar Triple Zero",
+      "brand": "Ámbar",
+      "style": "Non-alcoholic",
+      "country": "ES",
+      "abv": 0.0,
+      "rarity": "common",
+      "emoji": "🍺"
+    },
+    {
+      "id": "ambar_radler",
+      "name": "Ámbar Radler",
+      "brand": "Ámbar",
+      "style": "Radler",
+      "country": "ES",
+      "abv": 2.5,
+      "rarity": "common",
+      "emoji": "🍺"
+    },
+    {
+      "id": "ambar_export",
+      "name": "Ámbar Export",
+      "brand": "Ámbar",
+      "style": "Lager",
+      "country": "ES",
+      "abv": 7.0,
+      "rarity": "mythic",
+      "emoji": "🍺"
+    },
+    {
+      "id": "keler",
+      "name": "Keler",
+      "brand": "Keler",
+      "style": "Lager",
+      "country": "ES",
+      "abv": 4.8,
+      "rarity": "common",
+      "emoji": "🍺"
+    },
+    {
+      "id": "la_salve_lager",
+      "name": "La Salve Lager",
+      "brand": "La Salve",
+      "style": "Lager",
+      "country": "ES",
+      "abv": 5.0,
+      "rarity": "rare",
+      "emoji": "🍺"
+    },
+    {
+      "id": "la_salve_ipa",
+      "name": "La Salve IPA",
+      "brand": "La Salve",
+      "style": "IPA",
+      "country": "ES",
+      "abv": 6.0,
+      "rarity": "rare",
+      "emoji": "🍺"
+    },
+    {
+      "id": "la_salve_lucifer",
+      "name": "La Salve Lucifer",
+      "brand": "La Salve",
+      "style": "Strong Ale",
+      "country": "ES",
+      "abv": 8.5,
+      "rarity": "mythic",
+      "emoji": "🍺"
+    },
+    {
+      "id": "dorado_especial",
+      "name": "Dorada Especial",
+      "brand": "Dorada",
+      "style": "Lager",
+      "country": "ES",
+      "abv": 5.0,
+      "rarity": "common",
+      "emoji": "🍺"
+    },
+    {
+      "id": "dorado_pilsen",
+      "name": "Dorada Pilsen",
+      "brand": "Dorada",
+      "style": "Pilsner",
+      "country": "ES",
+      "abv": 4.8,
+      "rarity": "common",
+      "emoji": "🍺"
+    },
+    {
+      "id": "tropical",
+      "name": "Tropical",
+      "brand": "Tropical",
+      "style": "Lager",
+      "country": "ES",
+      "abv": 4.9,
+      "rarity": "common",
+      "emoji": "🍺"
+    },
+    {
+      "id": "tropical_limon",
+      "name": "Tropical Limón",
+      "brand": "Tropical",
+      "style": "Radler",
+      "country": "ES",
+      "abv": 2.0,
+      "rarity": "common",
+      "emoji": "🍺"
+    },
+    {
+      "id": "reina",
+      "name": "Reina",
+      "brand": "Reina",
+      "style": "Lager",
+      "country": "ES",
+      "abv": 4.8,
+      "rarity": "common",
+      "emoji": "🍺"
+    },
+    {
+      "id": "rosa_blanca",
+      "name": "Rosa Blanca",
+      "brand": "Rosa Blanca",
+      "style": "Lager",
+      "country": "ES",
+      "abv": 4.7,
+      "rarity": "common",
+      "emoji": "🍺"
+    },
+    {
+      "id": "damm_tarragona_xibeca",
+      "name": "Xibeca",
+      "brand": "Damm",
+      "style": "Lager",
+      "country": "ES",
+      "abv": 4.6,
+      "rarity": "common",
+      "emoji": "🍺"
+    },
+    {
+      "id": "damn_bock_damm",
+      "name": "Bock-Damm",
+      "brand": "Damm",
+      "style": "Bock",
+      "country": "ES",
+      "abv": 6.5,
+      "rarity": "rare",
+      "emoji": "🍺"
+    },
+    {
+      "id": "estrella_damm_bock",
+      "name": "Estrella Damm Bock",
+      "brand": "Damm",
+      "style": "Bock",
+      "country": "ES",
+      "abv": 6.5,
+      "rarity": "rare",
+      "emoji": "🍺"
+    },
+    {
+      "id": "estrella_damm_malquerida",
+      "name": "Malquerida",
+      "brand": "Damm",
+      "style": "Radler",
+      "country": "ES",
+      "abv": 3.2,
+      "rarity": "common",
+      "emoji": "🍺"
+    },
+    {
+      "id": "ambar_ipa",
+      "name": "Ámbar IPA",
+      "brand": "Ámbar",
+      "style": "IPA",
+      "country": "ES",
+      "abv": 5.7,
+      "rarity": "rare",
+      "emoji": "🍺"
+    },
+    {
+      "id": "ambar_sin_gluten",
+      "name": "Ámbar Sin Gluten",
+      "brand": "Ámbar",
+      "style": "Gluten-free Lager",
+      "country": "ES",
+      "abv": 5.2,
+      "rarity": "rare",
+      "emoji": "🍺"
+    },
+    {
+      "id": "estrella_levante_verna",
+      "name": "Estrella de Levante Verna",
+      "brand": "Estrella de Levante",
+      "style": "Radler",
+      "country": "ES",
+      "abv": 3.2,
+      "rarity": "common",
+      "emoji": "🍺"
+    },
+    {
+      "id": "mahou_sesion_ipa",
+      "name": "Mahou Session IPA",
+      "brand": "Mahou",
+      "style": "IPA",
+      "country": "ES",
+      "abv": 4.5,
+      "rarity": "rare",
+      "emoji": "🍺"
+    },
+    {
+      "id": "mahou_tostada_0_0",
+      "name": "Mahou Tostada 0,0",
+      "brand": "Mahou",
+      "style": "Non-alcoholic",
+      "country": "ES",
+      "abv": 0.0,
+      "rarity": "common",
+      "emoji": "🍺"
+    },
+    {
+      "id": "mahou_tostada",
+      "name": "Mahou Tostada",
+      "brand": "Mahou",
+      "style": "Amber Lager",
+      "country": "ES",
+      "abv": 5.7,
+      "rarity": "rare",
+      "emoji": "🍺"
+    },
+    {
+      "id": "estrellagalicia_1906_ipa",
+      "name": "1906 IPA",
+      "brand": "1906",
+      "style": "IPA",
+      "country": "ES",
+      "abv": 6.0,
+      "rarity": "rare",
+      "emoji": "🍺"
+    },
+    {
+      "id": "cerv_cerex_pilsen",
+      "name": "Cerex Pilsen",
+      "brand": "Cerex",
+      "style": "Pilsner",
+      "country": "ES",
+      "abv": 5.0,
+      "rarity": "rare",
+      "emoji": "🍺"
+    },
+    {
+      "id": "cerv_cerex_ipa",
+      "name": "Cerex IPA",
+      "brand": "Cerex",
+      "style": "IPA",
+      "country": "ES",
+      "abv": 6.0,
+      "rarity": "rare",
+      "emoji": "🍺"
+    },
+    {
+      "id": "cerv_madriz_lager",
+      "name": "Cerveza Madriz Lager",
+      "brand": "Madriz",
+      "style": "Lager",
+      "country": "ES",
+      "abv": 4.8,
+      "rarity": "rare",
+      "emoji": "🍺"
+    },
+    {
+      "id": "cerv_madriz_ipa",
+      "name": "Cerveza Madriz IPA",
+      "brand": "Madriz",
+      "style": "IPA",
+      "country": "ES",
+      "abv": 6.0,
+      "rarity": "rare",
+      "emoji": "🍺"
+    },
+    {
+      "id": "estrella_damm_nonalco_tostada",
+      "name": "Free Damm Tostada 0,0",
+      "brand": "Damm",
+      "style": "Non-alcoholic",
+      "country": "ES",
+      "abv": 0.0,
+      "rarity": "common",
+      "emoji": "🍺"
+    },
+    {
+      "id": "amstel_tostada",
+      "name": "Amstel Tostada",
+      "brand": "Amstel",
+      "style": "Amber Lager",
+      "country": "ES",
+      "abv": 5.5,
+      "rarity": "rare",
+      "emoji": "🍺"
+    },
+    {
+      "id": "heineken_0_0",
+      "name": "Heineken 0,0",
+      "brand": "Heineken",
+      "style": "Non-alcoholic",
+      "country": "NL",
+      "abv": 0.0,
+      "rarity": "common",
+      "emoji": "🍺"
+    },
+    {
+      "id": "cruzcampo_especial",
+      "name": "Cruzcampo Especial",
+      "brand": "Cruzcampo",
+      "style": "Lager",
+      "country": "ES",
+      "abv": 4.8,
+      "rarity": "common",
+      "emoji": "🍺"
+    },
+    {
+      "id": "cruzcampo_andaluza",
+      "name": "Cruzcampo Andalucía",
+      "brand": "Cruzcampo",
+      "style": "Lager",
+      "country": "ES",
+      "abv": 4.8,
+      "rarity": "common",
+      "emoji": "🍺"
+    },
+    {
+      "id": "la_virgen_lager",
+      "name": "La Virgen Lager",
+      "brand": "La Virgen",
+      "style": "Lager",
+      "country": "ES",
+      "abv": 5.2,
+      "rarity": "rare",
+      "emoji": "🍺"
+    },
+    {
+      "id": "la_virgen_ipa",
+      "name": "La Virgen IPA",
+      "brand": "La Virgen",
+      "style": "IPA",
+      "country": "ES",
+      "abv": 6.0,
+      "rarity": "rare",
+      "emoji": "🍺"
+    },
+    {
+      "id": "la_virgen_trigo",
+      "name": "La Virgen Trigo",
+      "brand": "La Virgen",
+      "style": "Wheat",
+      "country": "ES",
+      "abv": 5.0,
+      "rarity": "rare",
+      "emoji": "🍺"
+    },
+    {
+      "id": "la_virgen_jamonera",
+      "name": "La Virgen Jamonera",
+      "brand": "La Virgen",
+      "style": "Amber Ale",
+      "country": "ES",
+      "abv": 5.6,
+      "rarity": "rare",
+      "emoji": "🍺"
+    },
+    {
+      "id": "cibeles_rubia",
+      "name": "Cibeles Rubia",
+      "brand": "Cibeles",
+      "style": "Pale Ale",
+      "country": "ES",
+      "abv": 4.5,
+      "rarity": "rare",
+      "emoji": "🍺"
+    },
+    {
+      "id": "cibeles_ipa",
+      "name": "Cibeles IPA",
+      "brand": "Cibeles",
+      "style": "IPA",
+      "country": "ES",
+      "abv": 6.5,
+      "rarity": "rare",
+      "emoji": "🍺"
+    },
+    {
+      "id": "cibeles_imperial_stout",
+      "name": "Cibeles Imperial Stout",
+      "brand": "Cibeles",
+      "style": "Imperial Stout",
+      "country": "ES",
+      "abv": 10.0,
+      "rarity": "mythic",
+      "emoji": "🍺"
+    },
+    {
+      "id": "basqueland_imparable",
+      "name": "Imparable",
+      "brand": "Basqueland Brewing",
+      "style": "IPA",
+      "country": "ES",
+      "abv": 6.8,
+      "rarity": "mythic",
+      "emoji": "🍺"
+    },
+    {
+      "id": "basqueland_zumo",
+      "name": "Zumo",
+      "brand": "Basqueland Brewing",
+      "style": "NEIPA",
+      "country": "ES",
+      "abv": 6.5,
+      "rarity": "mythic",
+      "emoji": "🍺"
+    },
+    {
+      "id": "basqueland_santa_clara",
+      "name": "Santa Clara",
+      "brand": "Basqueland Brewing",
+      "style": "Pale Ale",
+      "country": "ES",
+      "abv": 5.5,
+      "rarity": "rare",
+      "emoji": "🍺"
+    },
+    {
+      "id": "garage_soup",
+      "name": "Soup",
+      "brand": "Garage Beer Co.",
+      "style": "NEIPA",
+      "country": "ES",
+      "abv": 6.5,
+      "rarity": "mythic",
+      "emoji": "🍺"
+    },
+    {
+      "id": "garage_hipster",
+      "name": "Hipster Ale",
+      "brand": "Garage Beer Co.",
+      "style": "Pale Ale",
+      "country": "ES",
+      "abv": 5.0,
+      "rarity": "rare",
+      "emoji": "🍺"
+    },
+    {
+      "id": "garage_riba",
+      "name": "Riba",
+      "brand": "Garage Beer Co.",
+      "style": "Lager",
+      "country": "ES",
+      "abv": 4.8,
+      "rarity": "rare",
+      "emoji": "🍺"
+    },
+    {
+      "id": "naparbier_aker",
+      "name": "Aker",
+      "brand": "Naparbier",
+      "style": "IPA",
+      "country": "ES",
+      "abv": 6.5,
+      "rarity": "mythic",
+      "emoji": "🍺"
+    },
+    {
+      "id": "naparbier_pumpkin_tzar",
+      "name": "Pumpkin Tzar",
+      "brand": "Naparbier",
+      "style": "Imperial Stout",
+      "country": "ES",
+      "abv": 11.0,
+      "rarity": "mythic",
+      "emoji": "🍺"
+    },
+    {
+      "id": "naparbier_kiko",
+      "name": "Kiko",
+      "brand": "Naparbier",
+      "style": "Pale Ale",
+      "country": "ES",
+      "abv": 5.4,
+      "rarity": "rare",
+      "emoji": "🍺"
+    },
+    {
+      "id": "dougalls_ipa4",
+      "name": "IPA 4",
+      "brand": "Dougall's",
+      "style": "IPA",
+      "country": "ES",
+      "abv": 6.2,
+      "rarity": "rare",
+      "emoji": "🍺"
+    },
+    {
+      "id": "dougalls_happy_otter",
+      "name": "Happy Otter",
+      "brand": "Dougall's",
+      "style": "Pale Ale",
+      "country": "ES",
+      "abv": 5.0,
+      "rarity": "rare",
+      "emoji": "🍺"
+    },
+    {
+      "id": "caleya_ipa",
+      "name": "Caleya IPA",
+      "brand": "Caleya",
+      "style": "IPA",
+      "country": "ES",
+      "abv": 6.0,
+      "rarity": "rare",
+      "emoji": "🍺"
+    },
+    {
+      "id": "caleya_hoppy_lager",
+      "name": "Caleya Hoppy Lager",
+      "brand": "Caleya",
+      "style": "Hoppy Lager",
+      "country": "ES",
+      "abv": 5.0,
+      "rarity": "rare",
+      "emoji": "🍺"
+    },
+    {
+      "id": "tyris_marzen",
+      "name": "Tyris Märzen",
+      "brand": "Tyris",
+      "style": "Märzen",
+      "country": "ES",
+      "abv": 5.5,
+      "rarity": "rare",
+      "emoji": "🍺"
+    },
+    {
+      "id": "tyris_ipa",
+      "name": "Tyris IPA",
+      "brand": "Tyris",
+      "style": "IPA",
+      "country": "ES",
+      "abv": 6.3,
+      "rarity": "rare",
+      "emoji": "🍺"
+    },
+    {
+      "id": "la_sagra_rubia",
+      "name": "La Sagra Rubia",
+      "brand": "La Sagra",
+      "style": "Lager",
+      "country": "ES",
+      "abv": 5.2,
+      "rarity": "rare",
+      "emoji": "🍺"
+    },
+    {
+      "id": "la_sagra_ipa",
+      "name": "La Sagra IPA",
+      "brand": "La Sagra",
+      "style": "IPA",
+      "country": "ES",
+      "abv": 6.2,
+      "rarity": "rare",
+      "emoji": "🍺"
+    },
+    {
+      "id": "guinness_draught",
+      "name": "Guinness Draught",
+      "brand": "Guinness",
+      "style": "Stout",
+      "country": "IE",
+      "abv": 4.2,
+      "rarity": "rare",
+      "emoji": "🍺"
+    },
+    {
+      "id": "guinness_extra_stout",
+      "name": "Guinness Extra Stout",
+      "brand": "Guinness",
+      "style": "Stout",
+      "country": "IE",
+      "abv": 5.6,
+      "rarity": "rare",
+      "emoji": "🍺"
+    },
+    {
+      "id": "kilkenny",
+      "name": "Kilkenny",
+      "brand": "Kilkenny",
+      "style": "Irish Red Ale",
+      "country": "IE",
+      "abv": 4.3,
+      "rarity": "rare",
+      "emoji": "🍺"
+    },
+    {
+      "id": "smithwicks",
+      "name": "Smithwick's",
+      "brand": "Smithwick's",
+      "style": "Irish Red Ale",
+      "country": "IE",
+      "abv": 4.5,
+      "rarity": "rare",
+      "emoji": "🍺"
+    },
+    {
+      "id": "chimay_rouge",
+      "name": "Chimay Rouge",
+      "brand": "Chimay",
+      "style": "Trappist",
+      "country": "BE",
+      "abv": 7.0,
+      "rarity": "mythic",
+      "emoji": "🍺"
+    },
+    {
+      "id": "chimay_blanche",
+      "name": "Chimay Tripel (White)",
+      "brand": "Chimay",
+      "style": "Trappist",
+      "country": "BE",
+      "abv": 8.0,
+      "rarity": "mythic",
+      "emoji": "🍺"
+    },
+    {
+      "id": "duvel",
+      "name": "Duvel",
+      "brand": "Duvel",
+      "style": "Strong Ale",
+      "country": "BE",
+      "abv": 8.5,
+      "rarity": "mythic",
+      "emoji": "🍺"
+    },
+    {
+      "id": "delirium_tremens",
+      "name": "Delirium Tremens",
+      "brand": "Delirium",
+      "style": "Strong Ale",
+      "country": "BE",
+      "abv": 8.5,
+      "rarity": "mythic",
+      "emoji": "🍺"
+    },
+    {
+      "id": "orval",
+      "name": "Orval",
+      "brand": "Orval",
+      "style": "Trappist",
+      "country": "BE",
+      "abv": 6.2,
+      "rarity": "mythic",
+      "emoji": "🍺"
+    },
+    {
+      "id": "westmalle_tripel",
+      "name": "Westmalle Tripel",
+      "brand": "Westmalle",
+      "style": "Trappist",
+      "country": "BE",
+      "abv": 9.5,
+      "rarity": "mythic",
+      "emoji": "🍺"
+    },
+    {
+      "id": "tripel_karmeliet",
+      "name": "Tripel Karmeliet",
+      "brand": "Bosteels",
+      "style": "Tripel",
+      "country": "BE",
+      "abv": 8.4,
+      "rarity": "mythic",
+      "emoji": "🍺"
+    },
+    {
+      "id": "kwak",
+      "name": "Pauwel Kwak",
+      "brand": "Bosteels",
+      "style": "Amber Ale",
+      "country": "BE",
+      "abv": 8.4,
+      "rarity": "rare",
+      "emoji": "🍺"
+    },
+    {
+      "id": "la_chouffe",
+      "name": "La Chouffe",
+      "brand": "Achouffe",
+      "style": "Blonde Ale",
+      "country": "BE",
+      "abv": 8.0,
+      "rarity": "rare",
+      "emoji": "🍺"
+    },
+    {
+      "id": "pilsner_urquell",
+      "name": "Pilsner Urquell",
+      "brand": "Pilsner Urquell",
+      "style": "Pilsner",
+      "country": "CZ",
+      "abv": 4.4,
+      "rarity": "rare",
+      "emoji": "🍺"
+    },
+    {
+      "id": "budvar",
+      "name": "Budweiser Budvar",
+      "brand": "Budweiser Budvar",
+      "style": "Lager",
+      "country": "CZ",
+      "abv": 5.0,
+      "rarity": "rare",
+      "emoji": "🍺"
+    },
+    {
+      "id": "paulaner_hefe",
+      "name": "Paulaner Hefe-Weißbier",
+      "brand": "Paulaner",
+      "style": "Wheat",
+      "country": "DE",
+      "abv": 5.5,
+      "rarity": "rare",
+      "emoji": "🍺"
+    },
+    {
+      "id": "weihenstephaner_hefe",
+      "name": "Weihenstephaner Hefe Weissbier",
+      "brand": "Weihenstephan",
+      "style": "Wheat",
+      "country": "DE",
+      "abv": 5.4,
+      "rarity": "mythic",
+      "emoji": "🍺"
+    },
+    {
+      "id": "erdinger_weissbier",
+      "name": "Erdinger Weissbier",
+      "brand": "Erdinger",
+      "style": "Wheat",
+      "country": "DE",
+      "abv": 5.3,
+      "rarity": "rare",
+      "emoji": "🍺"
+    },
+    {
+      "id": "franziskaner_weissbier",
+      "name": "Franziskaner Weissbier",
+      "brand": "Franziskaner",
+      "style": "Wheat",
+      "country": "DE",
+      "abv": 5.0,
+      "rarity": "rare",
+      "emoji": "🍺"
+    },
+    {
+      "id": "augustiner_hell",
+      "name": "Augustiner Lagerbier Hell",
+      "brand": "Augustiner",
+      "style": "Lager",
+      "country": "DE",
+      "abv": 5.2,
+      "rarity": "mythic",
+      "emoji": "🍺"
+    },
+    {
+      "id": "peroni_nastro_azzurro",
+      "name": "Peroni Nastro Azzurro",
+      "brand": "Peroni",
+      "style": "Lager",
+      "country": "IT",
+      "abv": 5.1,
+      "rarity": "rare",
+      "emoji": "🍺"
+    },
+    {
+      "id": "birra_moretti",
+      "name": "Birra Moretti",
+      "brand": "Moretti",
+      "style": "Lager",
+      "country": "IT",
+      "abv": 4.6,
+      "rarity": "rare",
+      "emoji": "🍺"
+    },
+    {
+      "id": "kronenbourg_1664",
+      "name": "Kronenbourg 1664",
+      "brand": "Kronenbourg",
+      "style": "Lager",
+      "country": "FR",
+      "abv": 5.0,
+      "rarity": "rare",
+      "emoji": "🍺"
+    },
+    {
+      "id": "corona_extra",
+      "name": "Corona Extra",
+      "brand": "Corona",
+      "style": "Pale Lager",
+      "country": "MX",
+      "abv": 4.5,
+      "rarity": "common",
+      "emoji": "🍺"
+    },
+    {
+      "id": "modelo_especial",
+      "name": "Modelo Especial",
+      "brand": "Modelo",
+      "style": "Lager",
+      "country": "MX",
+      "abv": 4.4,
+      "rarity": "rare",
+      "emoji": "🍺"
+    },
+    {
+      "id": "asahi_super_dry",
+      "name": "Asahi Super Dry",
+      "brand": "Asahi",
+      "style": "Lager",
+      "country": "JP",
+      "abv": 5.0,
+      "rarity": "rare",
+      "emoji": "🍺"
+    },
+    {
+      "id": "kirin_ichiban",
+      "name": "Kirin Ichiban",
+      "brand": "Kirin",
+      "style": "Lager",
+      "country": "JP",
+      "abv": 5.0,
+      "rarity": "rare",
+      "emoji": "🍺"
+    },
+    {
+      "id": "sapporo_premium",
+      "name": "Sapporo Premium",
+      "brand": "Sapporo",
+      "style": "Lager",
+      "country": "JP",
+      "abv": 4.9,
+      "rarity": "rare",
+      "emoji": "🍺"
+    },
+    {
+      "id": "mercadona_steinburg_clasica",
+      "name": "Steinburg Clásica",
+      "brand": "Steinburg (Mercadona)",
+      "style": "Lager",
+      "country": "ES",
+      "abv": 4.8,
+      "rarity": "common",
+      "emoji": "🍺"
+    },
+    {
+      "id": "mercadona_falke_0_0_tostada",
+      "name": "Falke 0,0 Tostada",
+      "brand": "Falke (Mercadona)",
+      "style": "Non-alcoholic (Toasted)",
+      "country": "ES",
+      "abv": 0.0,
+      "rarity": "common",
+      "emoji": "🍺"
+    },
+    {
+      "id": "carrefour_0_0_lata",
+      "name": "Carrefour 0,0",
+      "brand": "Carrefour",
+      "style": "Non-alcoholic",
+      "country": "ES",
+      "abv": 0.0,
+      "rarity": "common",
+      "emoji": "🍺"
+    },
+    {
+      "id": "carrefour_7_lata",
+      "name": "Carrefour 7%",
+      "brand": "Carrefour",
+      "style": "Strong Lager",
+      "country": "ES",
+      "abv": 7.0,
+      "rarity": "rare",
+      "emoji": "🍺"
+    },
+    {
+      "id": "carrefour_saer_brau_clasica",
+      "name": "Saer Brau Clásica",
+      "brand": "Saer Brau (Carrefour)",
+      "style": "Lager",
+      "country": "ES",
+      "abv": 4.5,
+      "rarity": "common",
+      "emoji": "🍺"
+    },
+    {
+      "id": "carrefour_saer_brau_0_0_tostada",
+      "name": "Saer Brau 0,0 Tostada",
+      "brand": "Saer Brau (Carrefour)",
+      "style": "Non-alcoholic (Toasted)",
+      "country": "ES",
+      "abv": 0.0,
+      "rarity": "common",
+      "emoji": "🍺"
+    },
+    {
+      "id": "dia_ramblers_classic_lager",
+      "name": "Ramblers Classic Lager",
+      "brand": "Ramblers (DIA)",
+      "style": "Lager",
+      "country": "ES",
+      "abv": 4.7,
+      "rarity": "common",
+      "emoji": "🍺"
+    },
+    {
+      "id": "dia_ramblers_0_0",
+      "name": "Ramblers 0,0",
+      "brand": "Ramblers (DIA)",
+      "style": "Non-alcoholic",
+      "country": "ES",
+      "abv": 0.0,
+      "rarity": "common",
+      "emoji": "🍺"
+    },
+    {
+      "id": "aldi_karlsquell_lager",
+      "name": "Karlsquell Lager",
+      "brand": "Karlsquell (ALDI)",
+      "style": "Lager",
+      "country": "ES",
+      "abv": 4.7,
+      "rarity": "common",
+      "emoji": "🍺"
+    },
+    {
+      "id": "alcampo_holbrand_lager",
+      "name": "Holbrand Lager",
+      "brand": "Holbrand (Alcampo)",
+      "style": "Lager",
+      "country": "ES",
+      "abv": 4.8,
+      "rarity": "common",
+      "emoji": "🍺"
+    },
+    {
+      "id": "alcampo_holbrand_sin_alcohol",
+      "name": "Holbrand Sin Alcohol",
+      "brand": "Holbrand (Alcampo)",
+      "style": "Non-alcoholic",
+      "country": "ES",
+      "abv": 0.0,
+      "rarity": "common",
+      "emoji": "🍺"
+    },
+    {
+      "id": "eroski_aurum_0_0_tostada",
+      "name": "Aurum 0,0 Tostada",
+      "brand": "Aurum (Eroski)",
+      "style": "Non-alcoholic (Toasted)",
+      "country": "ES",
+      "abv": 0.0,
+      "rarity": "common",
+      "emoji": "🍺"
+    },
+    {
+      "id": "eroski_aurum_especial",
+      "name": "Aurum Especial",
+      "brand": "Aurum (Eroski)",
+      "style": "Special Lager",
+      "country": "ES",
+      "abv": 5.6,
+      "rarity": "rare",
+      "emoji": "🍺"
+    },
+    {
+      "id": "eroski_aurum_tostada_6_6",
+      "name": "Aurum Tostada 6,6",
+      "brand": "Aurum (Eroski)",
+      "style": "Toasted Lager",
+      "country": "ES",
+      "abv": 6.6,
+      "rarity": "rare",
+      "emoji": "🍺"
+    },
+    {
+      "id": "lidl_argus_premium",
+      "name": "Argus Premium",
+      "brand": "Argus (Lidl)",
+      "style": "Lager",
+      "country": "ES",
+      "abv": 4.9,
+      "rarity": "common",
+      "emoji": "🍺"
+    },
+    {
+      "id": "lidl_argus_strong",
+      "name": "Argus Strong",
+      "brand": "Argus (Lidl)",
+      "style": "Strong Lager",
+      "country": "ES",
+      "abv": 7.2,
+      "rarity": "rare",
+      "emoji": "🍺"
+    },
+    {
+      "id": "lidl_perlenbacher_premium_pils",
+      "name": "Perlenbacher Premium Pils",
+      "brand": "Perlenbacher (Lidl)",
+      "style": "Pilsner",
+      "country": "DE",
+      "abv": 4.9,
+      "rarity": "common",
+      "emoji": "🍺"
+    },
+    {
+      "id": "lidl_perlenbacher_0_0",
+      "name": "Perlenbacher 0,0",
+      "brand": "Perlenbacher (Lidl)",
+      "style": "Non-alcoholic",
+      "country": "DE",
+      "abv": 0.0,
+      "rarity": "common",
+      "emoji": "🍺"
+    },
+    {
+      "id": "lidl_finkbrau_pils",
+      "name": "Finkbräu Pils",
+      "brand": "Finkbräu (Lidl)",
+      "style": "Pilsner",
+      "country": "DE",
+      "abv": 4.8,
+      "rarity": "common",
+      "emoji": "🍺"
+    }
+  ]
+}

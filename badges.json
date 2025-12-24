@@ -1,0 +1,1277 @@
+{
+  "version": 1,
+  "badges": [
+    {
+      "id": "first",
+      "name": "Primer brindis",
+      "icon": "🥂",
+      "desc": "Registra tu primera cerveza",
+      "rule": {
+        "type": "total_records",
+        "gte": 1
+      }
+    },
+    {
+      "id": "unique_5",
+      "name": "Coleccionista 5",
+      "icon": "🧩",
+      "desc": "Registra 5 cervezas únicas",
+      "rule": {
+        "type": "unique_beers_total",
+        "gte": 5
+      }
+    },
+    {
+      "id": "unique_10",
+      "name": "Coleccionista 10",
+      "icon": "🧭",
+      "desc": "Registra 10 cervezas únicas",
+      "rule": {
+        "type": "unique_beers_total",
+        "gte": 10
+      }
+    },
+    {
+      "id": "unique_20",
+      "name": "Coleccionista 20",
+      "icon": "🗺️",
+      "desc": "Registra 20 cervezas únicas",
+      "rule": {
+        "type": "unique_beers_total",
+        "gte": 20
+      }
+    },
+    {
+      "id": "unique_50",
+      "name": "Coleccionista 50",
+      "icon": "📚",
+      "desc": "Registra 50 cervezas únicas",
+      "rule": {
+        "type": "unique_beers_total",
+        "gte": 50
+      }
+    },
+    {
+      "id": "unique_100",
+      "name": "Coleccionista 100",
+      "icon": "🏰",
+      "desc": "Registra 100 cervezas únicas",
+      "rule": {
+        "type": "unique_beers_total",
+        "gte": 100
+      }
+    },
+    {
+      "id": "completionist_151",
+      "name": "Completacionista",
+      "icon": "🏆",
+      "desc": "Registra 151 cervezas únicas",
+      "rule": {
+        "type": "unique_beers_total",
+        "gte": 151
+      }
+    },
+    {
+      "id": "rarity_common_1",
+      "name": "Primera común",
+      "icon": "🏷️",
+      "desc": "Registra tu primera cerveza común",
+      "rule": {
+        "type": "rarity_count_total",
+        "rarity": "common",
+        "gte": 1
+      }
+    },
+    {
+      "id": "rarity_common_5",
+      "name": "5 comunes",
+      "icon": "🟩",
+      "desc": "Registra 5 cervezas de rareza común",
+      "rule": {
+        "type": "rarity_count_total",
+        "rarity": "common",
+        "gte": 5
+      }
+    },
+    {
+      "id": "rarity_common_10",
+      "name": "10 comunes",
+      "icon": "🟩",
+      "desc": "Registra 10 cervezas de rareza común",
+      "rule": {
+        "type": "rarity_count_total",
+        "rarity": "common",
+        "gte": 10
+      }
+    },
+    {
+      "id": "rarity_rare_1",
+      "name": "Primera rara",
+      "icon": "🏷️",
+      "desc": "Registra tu primera cerveza rara",
+      "rule": {
+        "type": "rarity_count_total",
+        "rarity": "rare",
+        "gte": 1
+      }
+    },
+    {
+      "id": "rarity_rare_5",
+      "name": "5 raras",
+      "icon": "🟦",
+      "desc": "Registra 5 cervezas de rareza rara",
+      "rule": {
+        "type": "rarity_count_total",
+        "rarity": "rare",
+        "gte": 5
+      }
+    },
+    {
+      "id": "rarity_rare_10",
+      "name": "10 raras",
+      "icon": "🟦",
+      "desc": "Registra 10 cervezas de rareza rara",
+      "rule": {
+        "type": "rarity_count_total",
+        "rarity": "rare",
+        "gte": 10
+      }
+    },
+    {
+      "id": "rarity_mythic_1",
+      "name": "Primera mítica",
+      "icon": "✨",
+      "desc": "Registra tu primera cerveza mítica",
+      "rule": {
+        "type": "rarity_count_total",
+        "rarity": "mythic",
+        "gte": 1
+      }
+    },
+    {
+      "id": "rarity_mythic_5",
+      "name": "5 míticas",
+      "icon": "🟪",
+      "desc": "Registra 5 cervezas de rareza mítica",
+      "rule": {
+        "type": "rarity_count_total",
+        "rarity": "mythic",
+        "gte": 5
+      }
+    },
+    {
+      "id": "rarity_mythic_10",
+      "name": "10 míticas",
+      "icon": "🟪",
+      "desc": "Registra 10 cervezas de rareza mítica",
+      "rule": {
+        "type": "rarity_count_total",
+        "rarity": "mythic",
+        "gte": 10
+      }
+    },
+    {
+      "id": "rarity_legendary_1",
+      "name": "Primera legendaria",
+      "icon": "🌟",
+      "desc": "Registra tu primera cerveza legendaria",
+      "rule": {
+        "type": "rarity_count_total",
+        "rarity": "legendary",
+        "gte": 1
+      }
+    },
+    {
+      "id": "rarity_legendary_5",
+      "name": "5 legendarias",
+      "icon": "🟨",
+      "desc": "Registra 5 cervezas de rareza legendaria",
+      "rule": {
+        "type": "rarity_count_total",
+        "rarity": "legendary",
+        "gte": 5
+      }
+    },
+    {
+      "id": "rarity_legendary_10",
+      "name": "10 legendarias",
+      "icon": "🟨",
+      "desc": "Registra 10 cervezas de rareza legendaria",
+      "rule": {
+        "type": "rarity_count_total",
+        "rarity": "legendary",
+        "gte": 10
+      }
+    },
+    {
+      "id": "style_amber_ale_1",
+      "name": "Primer Amber Ale",
+      "icon": "🍺",
+      "desc": "Registra tu primera cerveza de la categoría Amber Ale",
+      "rule": {
+        "type": "style_count_total",
+        "style": "Amber Ale",
+        "gte": 1
+      }
+    },
+    {
+      "id": "style_amber_ale_5",
+      "name": "5x Amber Ale",
+      "icon": "🎯",
+      "desc": "Registra 5 cervezas de la categoría Amber Ale",
+      "rule": {
+        "type": "style_count_total",
+        "style": "Amber Ale",
+        "gte": 5
+      }
+    },
+    {
+      "id": "style_amber_ale_10",
+      "name": "10x Amber Ale",
+      "icon": "🔟",
+      "desc": "Registra 10 cervezas de la categoría Amber Ale",
+      "rule": {
+        "type": "style_count_total",
+        "style": "Amber Ale",
+        "gte": 10
+      }
+    },
+    {
+      "id": "style_amber_lager_1",
+      "name": "Primer Amber Lager",
+      "icon": "🍺",
+      "desc": "Registra tu primera cerveza de la categoría Amber Lager",
+      "rule": {
+        "type": "style_count_total",
+        "style": "Amber Lager",
+        "gte": 1
+      }
+    },
+    {
+      "id": "style_amber_lager_5",
+      "name": "5x Amber Lager",
+      "icon": "🎯",
+      "desc": "Registra 5 cervezas de la categoría Amber Lager",
+      "rule": {
+        "type": "style_count_total",
+        "style": "Amber Lager",
+        "gte": 5
+      }
+    },
+    {
+      "id": "style_amber_lager_10",
+      "name": "10x Amber Lager",
+      "icon": "🔟",
+      "desc": "Registra 10 cervezas de la categoría Amber Lager",
+      "rule": {
+        "type": "style_count_total",
+        "style": "Amber Lager",
+        "gte": 10
+      }
+    },
+    {
+      "id": "style_barrel_aged_1",
+      "name": "Primer Barrel-aged",
+      "icon": "🪵",
+      "desc": "Registra tu primera cerveza de la categoría Barrel-aged",
+      "rule": {
+        "type": "style_count_total",
+        "style": "Barrel-aged",
+        "gte": 1
+      }
+    },
+    {
+      "id": "style_barrel_aged_5",
+      "name": "5x Barrel-aged",
+      "icon": "🎯",
+      "desc": "Registra 5 cervezas de la categoría Barrel-aged",
+      "rule": {
+        "type": "style_count_total",
+        "style": "Barrel-aged",
+        "gte": 5
+      }
+    },
+    {
+      "id": "style_barrel_aged_10",
+      "name": "10x Barrel-aged",
+      "icon": "🔟",
+      "desc": "Registra 10 cervezas de la categoría Barrel-aged",
+      "rule": {
+        "type": "style_count_total",
+        "style": "Barrel-aged",
+        "gte": 10
+      }
+    },
+    {
+      "id": "style_blonde_ale_1",
+      "name": "Primer Blonde Ale",
+      "icon": "🍺",
+      "desc": "Registra tu primera cerveza de la categoría Blonde Ale",
+      "rule": {
+        "type": "style_count_total",
+        "style": "Blonde Ale",
+        "gte": 1
+      }
+    },
+    {
+      "id": "style_blonde_ale_5",
+      "name": "5x Blonde Ale",
+      "icon": "🎯",
+      "desc": "Registra 5 cervezas de la categoría Blonde Ale",
+      "rule": {
+        "type": "style_count_total",
+        "style": "Blonde Ale",
+        "gte": 5
+      }
+    },
+    {
+      "id": "style_blonde_ale_10",
+      "name": "10x Blonde Ale",
+      "icon": "🔟",
+      "desc": "Registra 10 cervezas de la categoría Blonde Ale",
+      "rule": {
+        "type": "style_count_total",
+        "style": "Blonde Ale",
+        "gte": 10
+      }
+    },
+    {
+      "id": "style_bock_1",
+      "name": "Primer Bock",
+      "icon": "🍺",
+      "desc": "Registra tu primera cerveza de la categoría Bock",
+      "rule": {
+        "type": "style_count_total",
+        "style": "Bock",
+        "gte": 1
+      }
+    },
+    {
+      "id": "style_bock_5",
+      "name": "5x Bock",
+      "icon": "🎯",
+      "desc": "Registra 5 cervezas de la categoría Bock",
+      "rule": {
+        "type": "style_count_total",
+        "style": "Bock",
+        "gte": 5
+      }
+    },
+    {
+      "id": "style_bock_10",
+      "name": "10x Bock",
+      "icon": "🔟",
+      "desc": "Registra 10 cervezas de la categoría Bock",
+      "rule": {
+        "type": "style_count_total",
+        "style": "Bock",
+        "gte": 10
+      }
+    },
+    {
+      "id": "style_dark_lager_1",
+      "name": "Primer Dark Lager",
+      "icon": "🌑",
+      "desc": "Registra tu primera cerveza de la categoría Dark Lager",
+      "rule": {
+        "type": "style_count_total",
+        "style": "Dark Lager",
+        "gte": 1
+      }
+    },
+    {
+      "id": "style_dark_lager_5",
+      "name": "5x Dark Lager",
+      "icon": "🎯",
+      "desc": "Registra 5 cervezas de la categoría Dark Lager",
+      "rule": {
+        "type": "style_count_total",
+        "style": "Dark Lager",
+        "gte": 5
+      }
+    },
+    {
+      "id": "style_dark_lager_10",
+      "name": "10x Dark Lager",
+      "icon": "🔟",
+      "desc": "Registra 10 cervezas de la categoría Dark Lager",
+      "rule": {
+        "type": "style_count_total",
+        "style": "Dark Lager",
+        "gte": 10
+      }
+    },
+    {
+      "id": "style_doppelbock_1",
+      "name": "Primer Doppelbock",
+      "icon": "🍺",
+      "desc": "Registra tu primera cerveza de la categoría Doppelbock",
+      "rule": {
+        "type": "style_count_total",
+        "style": "Doppelbock",
+        "gte": 1
+      }
+    },
+    {
+      "id": "style_doppelbock_5",
+      "name": "5x Doppelbock",
+      "icon": "🎯",
+      "desc": "Registra 5 cervezas de la categoría Doppelbock",
+      "rule": {
+        "type": "style_count_total",
+        "style": "Doppelbock",
+        "gte": 5
+      }
+    },
+    {
+      "id": "style_doppelbock_10",
+      "name": "10x Doppelbock",
+      "icon": "🔟",
+      "desc": "Registra 10 cervezas de la categoría Doppelbock",
+      "rule": {
+        "type": "style_count_total",
+        "style": "Doppelbock",
+        "gte": 10
+      }
+    },
+    {
+      "id": "style_gluten_free_lager_1",
+      "name": "Primer Gluten-free Lager",
+      "icon": "🌾",
+      "desc": "Registra tu primera cerveza de la categoría Gluten-free Lager",
+      "rule": {
+        "type": "style_count_total",
+        "style": "Gluten-free Lager",
+        "gte": 1
+      }
+    },
+    {
+      "id": "style_gluten_free_lager_5",
+      "name": "5x Gluten-free Lager",
+      "icon": "🎯",
+      "desc": "Registra 5 cervezas de la categoría Gluten-free Lager",
+      "rule": {
+        "type": "style_count_total",
+        "style": "Gluten-free Lager",
+        "gte": 5
+      }
+    },
+    {
+      "id": "style_gluten_free_lager_10",
+      "name": "10x Gluten-free Lager",
+      "icon": "🔟",
+      "desc": "Registra 10 cervezas de la categoría Gluten-free Lager",
+      "rule": {
+        "type": "style_count_total",
+        "style": "Gluten-free Lager",
+        "gte": 10
+      }
+    },
+    {
+      "id": "style_hoppy_lager_1",
+      "name": "Primer Hoppy Lager",
+      "icon": "🌿",
+      "desc": "Registra tu primera cerveza de la categoría Hoppy Lager",
+      "rule": {
+        "type": "style_count_total",
+        "style": "Hoppy Lager",
+        "gte": 1
+      }
+    },
+    {
+      "id": "style_hoppy_lager_5",
+      "name": "5x Hoppy Lager",
+      "icon": "🎯",
+      "desc": "Registra 5 cervezas de la categoría Hoppy Lager",
+      "rule": {
+        "type": "style_count_total",
+        "style": "Hoppy Lager",
+        "gte": 5
+      }
+    },
+    {
+      "id": "style_hoppy_lager_10",
+      "name": "10x Hoppy Lager",
+      "icon": "🔟",
+      "desc": "Registra 10 cervezas de la categoría Hoppy Lager",
+      "rule": {
+        "type": "style_count_total",
+        "style": "Hoppy Lager",
+        "gte": 10
+      }
+    },
+    {
+      "id": "style_ipa_1",
+      "name": "Primera IPA",
+      "icon": "🌿",
+      "desc": "Registra tu primera cerveza de la categoría IPA",
+      "rule": {
+        "type": "style_count_total",
+        "style": "IPA",
+        "gte": 1
+      }
+    },
+    {
+      "id": "style_ipa_5",
+      "name": "5x IPA",
+      "icon": "🎯",
+      "desc": "Registra 5 cervezas de la categoría IPA",
+      "rule": {
+        "type": "style_count_total",
+        "style": "IPA",
+        "gte": 5
+      }
+    },
+    {
+      "id": "style_ipa_10",
+      "name": "10x IPA",
+      "icon": "🔟",
+      "desc": "Registra 10 cervezas de la categoría IPA",
+      "rule": {
+        "type": "style_count_total",
+        "style": "IPA",
+        "gte": 10
+      }
+    },
+    {
+      "id": "style_imperial_stout_1",
+      "name": "Primer Imperial Stout",
+      "icon": "☕",
+      "desc": "Registra tu primera cerveza de la categoría Imperial Stout",
+      "rule": {
+        "type": "style_count_total",
+        "style": "Imperial Stout",
+        "gte": 1
+      }
+    },
+    {
+      "id": "style_imperial_stout_5",
+      "name": "5x Imperial Stout",
+      "icon": "🎯",
+      "desc": "Registra 5 cervezas de la categoría Imperial Stout",
+      "rule": {
+        "type": "style_count_total",
+        "style": "Imperial Stout",
+        "gte": 5
+      }
+    },
+    {
+      "id": "style_imperial_stout_10",
+      "name": "10x Imperial Stout",
+      "icon": "🔟",
+      "desc": "Registra 10 cervezas de la categoría Imperial Stout",
+      "rule": {
+        "type": "style_count_total",
+        "style": "Imperial Stout",
+        "gte": 10
+      }
+    },
+    {
+      "id": "style_irish_red_ale_1",
+      "name": "Primer Irish Red Ale",
+      "icon": "🍺",
+      "desc": "Registra tu primera cerveza de la categoría Irish Red Ale",
+      "rule": {
+        "type": "style_count_total",
+        "style": "Irish Red Ale",
+        "gte": 1
+      }
+    },
+    {
+      "id": "style_irish_red_ale_5",
+      "name": "5x Irish Red Ale",
+      "icon": "🎯",
+      "desc": "Registra 5 cervezas de la categoría Irish Red Ale",
+      "rule": {
+        "type": "style_count_total",
+        "style": "Irish Red Ale",
+        "gte": 5
+      }
+    },
+    {
+      "id": "style_irish_red_ale_10",
+      "name": "10x Irish Red Ale",
+      "icon": "🔟",
+      "desc": "Registra 10 cervezas de la categoría Irish Red Ale",
+      "rule": {
+        "type": "style_count_total",
+        "style": "Irish Red Ale",
+        "gte": 10
+      }
+    },
+    {
+      "id": "style_lager_1",
+      "name": "Primer Lager",
+      "icon": "🍺",
+      "desc": "Registra tu primera cerveza de la categoría Lager",
+      "rule": {
+        "type": "style_count_total",
+        "style": "Lager",
+        "gte": 1
+      }
+    },
+    {
+      "id": "style_lager_5",
+      "name": "5x Lager",
+      "icon": "🎯",
+      "desc": "Registra 5 cervezas de la categoría Lager",
+      "rule": {
+        "type": "style_count_total",
+        "style": "Lager",
+        "gte": 5
+      }
+    },
+    {
+      "id": "style_lager_10",
+      "name": "10x Lager",
+      "icon": "🔟",
+      "desc": "Registra 10 cervezas de la categoría Lager",
+      "rule": {
+        "type": "style_count_total",
+        "style": "Lager",
+        "gte": 10
+      }
+    },
+    {
+      "id": "style_marzen_1",
+      "name": "Primer Märzen",
+      "icon": "🍂",
+      "desc": "Registra tu primera cerveza de la categoría Märzen",
+      "rule": {
+        "type": "style_count_total",
+        "style": "Märzen",
+        "gte": 1
+      }
+    },
+    {
+      "id": "style_marzen_5",
+      "name": "5x Märzen",
+      "icon": "🎯",
+      "desc": "Registra 5 cervezas de la categoría Märzen",
+      "rule": {
+        "type": "style_count_total",
+        "style": "Märzen",
+        "gte": 5
+      }
+    },
+    {
+      "id": "style_marzen_10",
+      "name": "10x Märzen",
+      "icon": "🔟",
+      "desc": "Registra 10 cervezas de la categoría Märzen",
+      "rule": {
+        "type": "style_count_total",
+        "style": "Märzen",
+        "gte": 10
+      }
+    },
+    {
+      "id": "style_neipa_1",
+      "name": "Primera NEIPA",
+      "icon": "🌫️",
+      "desc": "Registra tu primera cerveza de la categoría NEIPA",
+      "rule": {
+        "type": "style_count_total",
+        "style": "NEIPA",
+        "gte": 1
+      }
+    },
+    {
+      "id": "style_neipa_5",
+      "name": "5x NEIPA",
+      "icon": "🎯",
+      "desc": "Registra 5 cervezas de la categoría NEIPA",
+      "rule": {
+        "type": "style_count_total",
+        "style": "NEIPA",
+        "gte": 5
+      }
+    },
+    {
+      "id": "style_neipa_10",
+      "name": "10x NEIPA",
+      "icon": "🔟",
+      "desc": "Registra 10 cervezas de la categoría NEIPA",
+      "rule": {
+        "type": "style_count_total",
+        "style": "NEIPA",
+        "gte": 10
+      }
+    },
+    {
+      "id": "style_non_alcoholic_1",
+      "name": "Primera Non-alcoholic",
+      "icon": "🚗",
+      "desc": "Registra tu primera cerveza de la categoría Non-alcoholic",
+      "rule": {
+        "type": "style_count_total",
+        "style": "Non-alcoholic",
+        "gte": 1
+      }
+    },
+    {
+      "id": "style_non_alcoholic_5",
+      "name": "5x Non-alcoholic",
+      "icon": "🎯",
+      "desc": "Registra 5 cervezas de la categoría Non-alcoholic",
+      "rule": {
+        "type": "style_count_total",
+        "style": "Non-alcoholic",
+        "gte": 5
+      }
+    },
+    {
+      "id": "style_non_alcoholic_10",
+      "name": "10x Non-alcoholic",
+      "icon": "🔟",
+      "desc": "Registra 10 cervezas de la categoría Non-alcoholic",
+      "rule": {
+        "type": "style_count_total",
+        "style": "Non-alcoholic",
+        "gte": 10
+      }
+    },
+    {
+      "id": "style_non_alcoholic_toasted_1",
+      "name": "Primera Non-alcoholic (toasted)",
+      "icon": "🔥",
+      "desc": "Registra tu primera cerveza de la categoría Non-alcoholic (toasted)",
+      "rule": {
+        "type": "style_count_total",
+        "style": "Non-alcoholic (toasted)",
+        "gte": 1
+      }
+    },
+    {
+      "id": "style_non_alcoholic_toasted_5",
+      "name": "5x Non-alcoholic (toasted)",
+      "icon": "🎯",
+      "desc": "Registra 5 cervezas de la categoría Non-alcoholic (toasted)",
+      "rule": {
+        "type": "style_count_total",
+        "style": "Non-alcoholic (toasted)",
+        "gte": 5
+      }
+    },
+    {
+      "id": "style_non_alcoholic_toasted_10",
+      "name": "10x Non-alcoholic (toasted)",
+      "icon": "🔟",
+      "desc": "Registra 10 cervezas de la categoría Non-alcoholic (toasted)",
+      "rule": {
+        "type": "style_count_total",
+        "style": "Non-alcoholic (toasted)",
+        "gte": 10
+      }
+    },
+    {
+      "id": "style_pale_ale_1",
+      "name": "Primer Pale Ale",
+      "icon": "🍺",
+      "desc": "Registra tu primera cerveza de la categoría Pale Ale",
+      "rule": {
+        "type": "style_count_total",
+        "style": "Pale Ale",
+        "gte": 1
+      }
+    },
+    {
+      "id": "style_pale_ale_5",
+      "name": "5x Pale Ale",
+      "icon": "🎯",
+      "desc": "Registra 5 cervezas de la categoría Pale Ale",
+      "rule": {
+        "type": "style_count_total",
+        "style": "Pale Ale",
+        "gte": 5
+      }
+    },
+    {
+      "id": "style_pale_ale_10",
+      "name": "10x Pale Ale",
+      "icon": "🔟",
+      "desc": "Registra 10 cervezas de la categoría Pale Ale",
+      "rule": {
+        "type": "style_count_total",
+        "style": "Pale Ale",
+        "gte": 10
+      }
+    },
+    {
+      "id": "style_pale_lager_1",
+      "name": "Primer Pale Lager",
+      "icon": "🍺",
+      "desc": "Registra tu primera cerveza de la categoría Pale Lager",
+      "rule": {
+        "type": "style_count_total",
+        "style": "Pale Lager",
+        "gte": 1
+      }
+    },
+    {
+      "id": "style_pale_lager_5",
+      "name": "5x Pale Lager",
+      "icon": "🎯",
+      "desc": "Registra 5 cervezas de la categoría Pale Lager",
+      "rule": {
+        "type": "style_count_total",
+        "style": "Pale Lager",
+        "gte": 5
+      }
+    },
+    {
+      "id": "style_pale_lager_10",
+      "name": "10x Pale Lager",
+      "icon": "🔟",
+      "desc": "Registra 10 cervezas de la categoría Pale Lager",
+      "rule": {
+        "type": "style_count_total",
+        "style": "Pale Lager",
+        "gte": 10
+      }
+    },
+    {
+      "id": "style_pilsner_1",
+      "name": "Primer Pilsner",
+      "icon": "🍺",
+      "desc": "Registra tu primera cerveza de la categoría Pilsner",
+      "rule": {
+        "type": "style_count_total",
+        "style": "Pilsner",
+        "gte": 1
+      }
+    },
+    {
+      "id": "style_pilsner_5",
+      "name": "5x Pilsner",
+      "icon": "🎯",
+      "desc": "Registra 5 cervezas de la categoría Pilsner",
+      "rule": {
+        "type": "style_count_total",
+        "style": "Pilsner",
+        "gte": 5
+      }
+    },
+    {
+      "id": "style_pilsner_10",
+      "name": "10x Pilsner",
+      "icon": "🔟",
+      "desc": "Registra 10 cervezas de la categoría Pilsner",
+      "rule": {
+        "type": "style_count_total",
+        "style": "Pilsner",
+        "gte": 10
+      }
+    },
+    {
+      "id": "style_porter_1",
+      "name": "Primer Porter",
+      "icon": "🍫",
+      "desc": "Registra tu primera cerveza de la categoría Porter",
+      "rule": {
+        "type": "style_count_total",
+        "style": "Porter",
+        "gte": 1
+      }
+    },
+    {
+      "id": "style_porter_5",
+      "name": "5x Porter",
+      "icon": "🎯",
+      "desc": "Registra 5 cervezas de la categoría Porter",
+      "rule": {
+        "type": "style_count_total",
+        "style": "Porter",
+        "gte": 5
+      }
+    },
+    {
+      "id": "style_porter_10",
+      "name": "10x Porter",
+      "icon": "🔟",
+      "desc": "Registra 10 cervezas de la categoría Porter",
+      "rule": {
+        "type": "style_count_total",
+        "style": "Porter",
+        "gte": 10
+      }
+    },
+    {
+      "id": "style_radler_1",
+      "name": "Primer Radler",
+      "icon": "🍋",
+      "desc": "Registra tu primera cerveza de la categoría Radler",
+      "rule": {
+        "type": "style_count_total",
+        "style": "Radler",
+        "gte": 1
+      }
+    },
+    {
+      "id": "style_radler_5",
+      "name": "5x Radler",
+      "icon": "🎯",
+      "desc": "Registra 5 cervezas de la categoría Radler",
+      "rule": {
+        "type": "style_count_total",
+        "style": "Radler",
+        "gte": 5
+      }
+    },
+    {
+      "id": "style_radler_10",
+      "name": "10x Radler",
+      "icon": "🔟",
+      "desc": "Registra 10 cervezas de la categoría Radler",
+      "rule": {
+        "type": "style_count_total",
+        "style": "Radler",
+        "gte": 10
+      }
+    },
+    {
+      "id": "style_red_lager_1",
+      "name": "Primer Red Lager",
+      "icon": "🍺",
+      "desc": "Registra tu primera cerveza de la categoría Red Lager",
+      "rule": {
+        "type": "style_count_total",
+        "style": "Red Lager",
+        "gte": 1
+      }
+    },
+    {
+      "id": "style_red_lager_5",
+      "name": "5x Red Lager",
+      "icon": "🎯",
+      "desc": "Registra 5 cervezas de la categoría Red Lager",
+      "rule": {
+        "type": "style_count_total",
+        "style": "Red Lager",
+        "gte": 5
+      }
+    },
+    {
+      "id": "style_red_lager_10",
+      "name": "10x Red Lager",
+      "icon": "🔟",
+      "desc": "Registra 10 cervezas de la categoría Red Lager",
+      "rule": {
+        "type": "style_count_total",
+        "style": "Red Lager",
+        "gte": 10
+      }
+    },
+    {
+      "id": "style_special_lager_1",
+      "name": "Primer Special Lager",
+      "icon": "🍺",
+      "desc": "Registra tu primera cerveza de la categoría Special Lager",
+      "rule": {
+        "type": "style_count_total",
+        "style": "Special Lager",
+        "gte": 1
+      }
+    },
+    {
+      "id": "style_special_lager_5",
+      "name": "5x Special Lager",
+      "icon": "🎯",
+      "desc": "Registra 5 cervezas de la categoría Special Lager",
+      "rule": {
+        "type": "style_count_total",
+        "style": "Special Lager",
+        "gte": 5
+      }
+    },
+    {
+      "id": "style_special_lager_10",
+      "name": "10x Special Lager",
+      "icon": "🔟",
+      "desc": "Registra 10 cervezas de la categoría Special Lager",
+      "rule": {
+        "type": "style_count_total",
+        "style": "Special Lager",
+        "gte": 10
+      }
+    },
+    {
+      "id": "style_stout_1",
+      "name": "Primer Stout",
+      "icon": "☕",
+      "desc": "Registra tu primera cerveza de la categoría Stout",
+      "rule": {
+        "type": "style_count_total",
+        "style": "Stout",
+        "gte": 1
+      }
+    },
+    {
+      "id": "style_stout_5",
+      "name": "5x Stout",
+      "icon": "🎯",
+      "desc": "Registra 5 cervezas de la categoría Stout",
+      "rule": {
+        "type": "style_count_total",
+        "style": "Stout",
+        "gte": 5
+      }
+    },
+    {
+      "id": "style_stout_10",
+      "name": "10x Stout",
+      "icon": "🔟",
+      "desc": "Registra 10 cervezas de la categoría Stout",
+      "rule": {
+        "type": "style_count_total",
+        "style": "Stout",
+        "gte": 10
+      }
+    },
+    {
+      "id": "style_strong_ale_1",
+      "name": "Primer Strong Ale",
+      "icon": "💪",
+      "desc": "Registra tu primera cerveza de la categoría Strong Ale",
+      "rule": {
+        "type": "style_count_total",
+        "style": "Strong Ale",
+        "gte": 1
+      }
+    },
+    {
+      "id": "style_strong_ale_5",
+      "name": "5x Strong Ale",
+      "icon": "🎯",
+      "desc": "Registra 5 cervezas de la categoría Strong Ale",
+      "rule": {
+        "type": "style_count_total",
+        "style": "Strong Ale",
+        "gte": 5
+      }
+    },
+    {
+      "id": "style_strong_ale_10",
+      "name": "10x Strong Ale",
+      "icon": "🔟",
+      "desc": "Registra 10 cervezas de la categoría Strong Ale",
+      "rule": {
+        "type": "style_count_total",
+        "style": "Strong Ale",
+        "gte": 10
+      }
+    },
+    {
+      "id": "style_strong_lager_1",
+      "name": "Primer Strong Lager",
+      "icon": "💪",
+      "desc": "Registra tu primera cerveza de la categoría Strong Lager",
+      "rule": {
+        "type": "style_count_total",
+        "style": "Strong Lager",
+        "gte": 1
+      }
+    },
+    {
+      "id": "style_strong_lager_5",
+      "name": "5x Strong Lager",
+      "icon": "🎯",
+      "desc": "Registra 5 cervezas de la categoría Strong Lager",
+      "rule": {
+        "type": "style_count_total",
+        "style": "Strong Lager",
+        "gte": 5
+      }
+    },
+    {
+      "id": "style_strong_lager_10",
+      "name": "10x Strong Lager",
+      "icon": "🔟",
+      "desc": "Registra 10 cervezas de la categoría Strong Lager",
+      "rule": {
+        "type": "style_count_total",
+        "style": "Strong Lager",
+        "gte": 10
+      }
+    },
+    {
+      "id": "style_toasted_lager_1",
+      "name": "Primer Toasted Lager",
+      "icon": "🔥",
+      "desc": "Registra tu primera cerveza de la categoría Toasted Lager",
+      "rule": {
+        "type": "style_count_total",
+        "style": "Toasted Lager",
+        "gte": 1
+      }
+    },
+    {
+      "id": "style_toasted_lager_5",
+      "name": "5x Toasted Lager",
+      "icon": "🎯",
+      "desc": "Registra 5 cervezas de la categoría Toasted Lager",
+      "rule": {
+        "type": "style_count_total",
+        "style": "Toasted Lager",
+        "gte": 5
+      }
+    },
+    {
+      "id": "style_toasted_lager_10",
+      "name": "10x Toasted Lager",
+      "icon": "🔟",
+      "desc": "Registra 10 cervezas de la categoría Toasted Lager",
+      "rule": {
+        "type": "style_count_total",
+        "style": "Toasted Lager",
+        "gte": 10
+      }
+    },
+    {
+      "id": "style_trappist_1",
+      "name": "Primer Trappist",
+      "icon": "⛪",
+      "desc": "Registra tu primera cerveza de la categoría Trappist",
+      "rule": {
+        "type": "style_count_total",
+        "style": "Trappist",
+        "gte": 1
+      }
+    },
+    {
+      "id": "style_trappist_5",
+      "name": "5x Trappist",
+      "icon": "🎯",
+      "desc": "Registra 5 cervezas de la categoría Trappist",
+      "rule": {
+        "type": "style_count_total",
+        "style": "Trappist",
+        "gte": 5
+      }
+    },
+    {
+      "id": "style_trappist_10",
+      "name": "10x Trappist",
+      "icon": "🔟",
+      "desc": "Registra 10 cervezas de la categoría Trappist",
+      "rule": {
+        "type": "style_count_total",
+        "style": "Trappist",
+        "gte": 10
+      }
+    },
+    {
+      "id": "style_tripel_1",
+      "name": "Primer Tripel",
+      "icon": "🍺",
+      "desc": "Registra tu primera cerveza de la categoría Tripel",
+      "rule": {
+        "type": "style_count_total",
+        "style": "Tripel",
+        "gte": 1
+      }
+    },
+    {
+      "id": "style_tripel_5",
+      "name": "5x Tripel",
+      "icon": "🎯",
+      "desc": "Registra 5 cervezas de la categoría Tripel",
+      "rule": {
+        "type": "style_count_total",
+        "style": "Tripel",
+        "gte": 5
+      }
+    },
+    {
+      "id": "style_tripel_10",
+      "name": "10x Tripel",
+      "icon": "🔟",
+      "desc": "Registra 10 cervezas de la categoría Tripel",
+      "rule": {
+        "type": "style_count_total",
+        "style": "Tripel",
+        "gte": 10
+      }
+    },
+    {
+      "id": "style_wheat_1",
+      "name": "Primer Wheat",
+      "icon": "🌾",
+      "desc": "Registra tu primera cerveza de la categoría Wheat",
+      "rule": {
+        "type": "style_count_total",
+        "style": "Wheat",
+        "gte": 1
+      }
+    },
+    {
+      "id": "style_wheat_5",
+      "name": "5x Wheat",
+      "icon": "🎯",
+      "desc": "Registra 5 cervezas de la categoría Wheat",
+      "rule": {
+        "type": "style_count_total",
+        "style": "Wheat",
+        "gte": 5
+      }
+    },
+    {
+      "id": "style_wheat_10",
+      "name": "10x Wheat",
+      "icon": "🔟",
+      "desc": "Registra 10 cervezas de la categoría Wheat",
+      "rule": {
+        "type": "style_count_total",
+        "style": "Wheat",
+        "gte": 10
+      }
+    },
+    {
+      "id": "style_wheat_spiced_1",
+      "name": "Primer Wheat / Spiced",
+      "icon": "🌾",
+      "desc": "Registra tu primera cerveza de la categoría Wheat / Spiced",
+      "rule": {
+        "type": "style_count_total",
+        "style": "Wheat / Spiced",
+        "gte": 1
+      }
+    },
+    {
+      "id": "style_wheat_spiced_5",
+      "name": "5x Wheat / Spiced",
+      "icon": "🎯",
+      "desc": "Registra 5 cervezas de la categoría Wheat / Spiced",
+      "rule": {
+        "type": "style_count_total",
+        "style": "Wheat / Spiced",
+        "gte": 5
+      }
+    },
+    {
+      "id": "style_wheat_spiced_10",
+      "name": "10x Wheat / Spiced",
+      "icon": "🔟",
+      "desc": "Registra 10 cervezas de la categoría Wheat / Spiced",
+      "rule": {
+        "type": "style_count_total",
+        "style": "Wheat / Spiced",
+        "gte": 10
+      }
+    },
+    {
+      "id": "cronista",
+      "name": "Cronista de la Taberna",
+      "icon": "📝",
+      "desc": "Escribe 1 nota este año. La historia queda escrita.",
+      "rule": { "type": "notes_year", "gte": 1 }
+    },
+    {
+      "id": "evidencia",
+      "name": "¡Foto o no pasó!",
+      "icon": "📸",
+      "desc": "Sube 1 foto este año. Prueba irrefutable.",
+      "rule": { "type": "photos_year", "gte": 1 }
+    }
+  ]
+}
