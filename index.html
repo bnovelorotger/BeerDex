@@ -1894,8 +1894,9 @@
             renderAll();
             initWelcome();
 
-            // onboarding si no hay nombre
-            if (!user.name) {
+            // onboarding si no hay nombre (solo si no estamos viendo la bienvenida)
+            const seen = localStorage.getItem("beerdex_welcome_seen") === "1";
+            if (!user.name && seen) {
                 openProfileModal(true);
             }
         }
@@ -1942,7 +1943,7 @@
             tabDex.onclick = () => setView("dex");
             tabStats.onclick = () => setView("stats");
             tabProfile.onclick = () => setView("profile");
-            tabHelp.onclick = () => showToast("🪵 Tip de taberna", "Captura con +. Completa tu BeerDex como una Pokédex.");
+            tabHelp.onclick = () => openWelcome();
             openAdd.onclick = openAddModal;
 
             addModal.addEventListener("click", (e) => { if (e.target === addModal) closeAddModal(); });
